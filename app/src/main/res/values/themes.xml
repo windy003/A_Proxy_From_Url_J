@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.ProxyClient" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- 主要品牌颜色 -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        
+        <!-- 次要品牌颜色 -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        
+        <!-- 状态栏颜色 -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        
+        <!-- 形状系统配置 -->
+        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.App.SmallComponent</item>
+        <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.App.MediumComponent</item>
+        <item name="shapeAppearanceLargeComponent">@style/ShapeAppearance.App.LargeComponent</item>
+        
+        <!-- Material 3 形状属性 -->
+        <item name="shapeAppearanceCornerExtraSmall">@dimen/shape_corner_extra_small</item>
+        <item name="shapeAppearanceCornerSmall">@dimen/shape_corner_small</item>
+        <item name="shapeAppearanceCornerMedium">@dimen/shape_corner_medium</item>
+        <item name="shapeAppearanceCornerLarge">@dimen/shape_corner_large</item>
+        <item name="shapeAppearanceCornerExtraLarge">@dimen/shape_corner_extra_large</item>
+    </style>
+</resources> 
