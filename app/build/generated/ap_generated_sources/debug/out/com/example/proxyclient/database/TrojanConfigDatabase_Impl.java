@@ -34,9 +34,9 @@ public final class TrojanConfigDatabase_Impl extends TrojanConfigDatabase {
     final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(config, new RoomOpenHelper.Delegate(1) {
       @Override
       public void createAllTables(@NonNull final SupportSQLiteDatabase db) {
-        db.execSQL("CREATE TABLE IF NOT EXISTS `trojan_config` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `serverAddress` TEXT, `serverPort` INTEGER NOT NULL, `password` TEXT, `remark` TEXT, `region` TEXT, `peer` TEXT, `sni` TEXT, `allowInsecure` INTEGER NOT NULL)");
+        db.execSQL("CREATE TABLE IF NOT EXISTS `trojan_config` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT, `serverAddress` TEXT, `serverPort` INTEGER NOT NULL, `password` TEXT, `remark` TEXT, `region` TEXT, `peer` TEXT, `sni` TEXT, `allowInsecure` INTEGER NOT NULL)");
         db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'b3f49d67d10ddc508aec4ad6a0dd4232')");
+        db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'ddaba2793ea399f0d1afebf8912a03bb')");
       }
 
       @Override
@@ -85,8 +85,9 @@ public final class TrojanConfigDatabase_Impl extends TrojanConfigDatabase {
       @NonNull
       public RoomOpenHelper.ValidationResult onValidateSchema(
           @NonNull final SupportSQLiteDatabase db) {
-        final HashMap<String, TableInfo.Column> _columnsTrojanConfig = new HashMap<String, TableInfo.Column>(9);
+        final HashMap<String, TableInfo.Column> _columnsTrojanConfig = new HashMap<String, TableInfo.Column>(10);
         _columnsTrojanConfig.put("id", new TableInfo.Column("id", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsTrojanConfig.put("name", new TableInfo.Column("name", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsTrojanConfig.put("serverAddress", new TableInfo.Column("serverAddress", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsTrojanConfig.put("serverPort", new TableInfo.Column("serverPort", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsTrojanConfig.put("password", new TableInfo.Column("password", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
@@ -106,7 +107,7 @@ public final class TrojanConfigDatabase_Impl extends TrojanConfigDatabase {
         }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "b3f49d67d10ddc508aec4ad6a0dd4232", "778931ad6489b0c2d75d559f97a7205f");
+    }, "ddaba2793ea399f0d1afebf8912a03bb", "9178faaaa62fda330354472f3cb67c08");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(config.context).name(config.name).callback(_openCallback).build();
     final SupportSQLiteOpenHelper _helper = config.sqliteOpenHelperFactory.create(_sqliteConfig);
     return _helper;
@@ -141,7 +142,7 @@ public final class TrojanConfigDatabase_Impl extends TrojanConfigDatabase {
   @NonNull
   protected Map<Class<?>, List<Class<?>>> getRequiredTypeConverters() {
     final HashMap<Class<?>, List<Class<?>>> _typeConvertersMap = new HashMap<Class<?>, List<Class<?>>>();
-    _typeConvertersMap.put(TrojanConfigDao.class, TrojanConfigDao_Impl.getRequiredConverters());
+    _typeConvertersMap.put(TrojanConfigDao.class, TrojanConfigDao_TrojanConfigDatabase_Impl.getRequiredConverters());
     return _typeConvertersMap;
   }
 
@@ -167,7 +168,7 @@ public final class TrojanConfigDatabase_Impl extends TrojanConfigDatabase {
     } else {
       synchronized(this) {
         if(_trojanConfigDao == null) {
-          _trojanConfigDao = new TrojanConfigDao_Impl(this);
+          _trojanConfigDao = new TrojanConfigDao_TrojanConfigDatabase_Impl(this);
         }
         return _trojanConfigDao;
       }

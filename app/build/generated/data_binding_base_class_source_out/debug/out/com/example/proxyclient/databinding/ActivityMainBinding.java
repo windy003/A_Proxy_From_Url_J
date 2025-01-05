@@ -7,9 +7,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.Switch;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.proxyclient.R;
@@ -22,20 +24,29 @@ public final class ActivityMainBinding implements ViewBinding {
   private final LinearLayout rootView;
 
   @NonNull
-  public final Button fetchButton;
+  public final TextView nodeInfo;
 
   @NonNull
-  public final RecyclerView recyclerView;
+  public final ListView nodeList;
 
   @NonNull
-  public final EditText urlEditText;
+  public final Button parseButton;
 
-  private ActivityMainBinding(@NonNull LinearLayout rootView, @NonNull Button fetchButton,
-      @NonNull RecyclerView recyclerView, @NonNull EditText urlEditText) {
+  @NonNull
+  public final EditText urlInput;
+
+  @NonNull
+  public final Switch vpnSwitch;
+
+  private ActivityMainBinding(@NonNull LinearLayout rootView, @NonNull TextView nodeInfo,
+      @NonNull ListView nodeList, @NonNull Button parseButton, @NonNull EditText urlInput,
+      @NonNull Switch vpnSwitch) {
     this.rootView = rootView;
-    this.fetchButton = fetchButton;
-    this.recyclerView = recyclerView;
-    this.urlEditText = urlEditText;
+    this.nodeInfo = nodeInfo;
+    this.nodeList = nodeList;
+    this.parseButton = parseButton;
+    this.urlInput = urlInput;
+    this.vpnSwitch = vpnSwitch;
   }
 
   @Override
@@ -65,26 +76,38 @@ public final class ActivityMainBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.fetchButton;
-      Button fetchButton = ViewBindings.findChildViewById(rootView, id);
-      if (fetchButton == null) {
+      id = R.id.nodeInfo;
+      TextView nodeInfo = ViewBindings.findChildViewById(rootView, id);
+      if (nodeInfo == null) {
         break missingId;
       }
 
-      id = R.id.recyclerView;
-      RecyclerView recyclerView = ViewBindings.findChildViewById(rootView, id);
-      if (recyclerView == null) {
+      id = R.id.nodeList;
+      ListView nodeList = ViewBindings.findChildViewById(rootView, id);
+      if (nodeList == null) {
         break missingId;
       }
 
-      id = R.id.urlEditText;
-      EditText urlEditText = ViewBindings.findChildViewById(rootView, id);
-      if (urlEditText == null) {
+      id = R.id.parseButton;
+      Button parseButton = ViewBindings.findChildViewById(rootView, id);
+      if (parseButton == null) {
         break missingId;
       }
 
-      return new ActivityMainBinding((LinearLayout) rootView, fetchButton, recyclerView,
-          urlEditText);
+      id = R.id.urlInput;
+      EditText urlInput = ViewBindings.findChildViewById(rootView, id);
+      if (urlInput == null) {
+        break missingId;
+      }
+
+      id = R.id.vpnSwitch;
+      Switch vpnSwitch = ViewBindings.findChildViewById(rootView, id);
+      if (vpnSwitch == null) {
+        break missingId;
+      }
+
+      return new ActivityMainBinding((LinearLayout) rootView, nodeInfo, nodeList, parseButton,
+          urlInput, vpnSwitch);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

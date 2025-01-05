@@ -9,6 +9,10 @@
         android:targetSdkVersion="34" />
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+    <uses-permission android:name="android.permission.BROADCAST_CLOSE_SYSTEM_DIALOGS" />
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
 
     <permission
         android:name="com.example.proxyclient.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
@@ -35,6 +39,29 @@
             </intent-filter>
         </activity>
 
+        <service
+            android:name="com.example.proxyclient.service.ProxyVpnService"
+            android:exported="false"
+            android:foregroundServiceType="specialUse"
+            android:permission="android.permission.BIND_VPN_SERVICE" >
+            <intent-filter>
+                <action android:name="android.net.VpnService" />
+            </intent-filter>
+        </service>
+        <service
+            android:name="com.example.proxyclient.service.VpnTileService"
+            android:exported="true"
+            android:icon="@drawable/ic_vpn_disconnected"
+            android:label="VPN 开关"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE" >
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.service.quicksettings.ACTIVE_TILE"
+                android:value="true" />
+        </service>
         <service
             android:name="androidx.room.MultiInstanceInvalidationService"
             android:directBootAware="true"

@@ -1,5 +1,7 @@
 package com.example.proxyclient.service;
 
+import com.example.proxyclient.model.TrojanConfig;
+
 public class TrojanService {
     private static TrojanService instance;
     
@@ -14,24 +16,21 @@ public class TrojanService {
         return instance;
     }
     
-    public void connect(String serverAddress, int port, String password) throws Exception {
-        // TODO: 实现实际的 Trojan 连接逻辑
-        // 这里需要根据你使用的 Trojan 库来实现具体的连接代码
-        
-        // 示例代码：
-        if (serverAddress == null || serverAddress.isEmpty()) {
+    public void connect(TrojanConfig config) throws Exception {
+        if (config.getServerAddress() == null || config.getServerAddress().isEmpty()) {
             throw new IllegalArgumentException("服务器地址不能为空");
         }
         
-        if (port <= 0 || port > 65535) {
+        if (config.getServerPort() <= 0 || config.getServerPort() > 65535) {
             throw new IllegalArgumentException("端口号无效");
         }
         
-        if (password == null || password.isEmpty()) {
+        if (config.getPassword() == null || config.getPassword().isEmpty()) {
             throw new IllegalArgumentException("密码不能为空");
         }
         
-        // 在这里添加实际的 Trojan 连接代码
+        // TODO: 调用 native 方法启动 Trojan
+        // 这里需要实现 JNI 调用
     }
     
     public void disconnect() {

@@ -1,0 +1,3 @@
+com.example.proxyclient.test
+style WhiteBackgroundDialogTheme
+style WhiteBackgroundTheme

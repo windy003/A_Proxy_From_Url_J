@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#FF000000</color>
+    <color name="ic_launcher_background">#FFFFFF</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
@@ -11,6 +12,12 @@
     <dimen name="shape_corner_large">16dp</dimen>
     <dimen name="shape_corner_medium">12dp</dimen>
     <dimen name="shape_corner_small">8dp</dimen>
+    <string name="app_name">ProxyClient</string>
+    <string name="connect_failed">连接失败</string>
+    <string name="connect_success">连接成功</string>
+    <string name="connecting">正在连接...</string>
+    <string name="disconnected">已断开连接</string>
+    <string name="vpn_permission_required">需要 VPN 权限</string>
     <style name="ShapeAppearance.App.LargeComponent" parent="ShapeAppearance.Material3.LargeComponent">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">12dp</item>

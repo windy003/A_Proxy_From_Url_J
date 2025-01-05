@@ -31,228 +31,293 @@ import android.content.SharedPreferences;
 import com.google.gson.Gson;
 import com.example.proxyclient.database.TrojanConfigDatabase;
 import com.example.proxyclient.database.TrojanConfigDao;
+import android.content.Intent;
+import android.net.VpnService;
+import com.example.proxyclient.service.ProxyVpnService;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.IntentFilter;
+import android.app.ActivityManager;
+import android.widget.Switch;
+import android.widget.ListView;
+import android.widget.ArrayAdapter;
+import java.io.IOException;
+import com.google.gson.reflect.TypeToken;
+import java.lang.reflect.Type;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
-    private RecyclerView recyclerView;
-    private TrojanConfigAdapter adapter;
-    private Handler mainHandler;
+    private static final int VPN_REQUEST_CODE = 1;
+    
+    private EditText urlInput;
+    private Button parseButton;
+    private ListView nodeList;
+    private Switch vpnSwitch;
+    private TextView nodeInfo;
+    private TrojanConfig lastConfig;
+    private BroadcastReceiver vpnStateReceiver;
+    private ArrayAdapter<TrojanConfig> adapter;
+    private List<TrojanConfig> configs = new ArrayList<>();
+
     private static final String PREFS_NAME = "TrojanPrefs";
-    private static final String KEY_LAST_CONFIG = "last_config";
-    private List<TrojanConfig> configs;
+    private static final String KEY_SUBSCRIPTION_URL = "subscription_url";
+    private static final String KEY_NODES = "nodes_list";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mainHandler = new Handler(Looper.getMainLooper());
-        
-        // 初始化配置列表
-        configs = new ArrayList<>();
-        // 初始化 RecyclerView
-        recyclerView = findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new TrojanConfigAdapter(configs);
-        recyclerView.setAdapter(adapter);
+        urlInput = findViewById(R.id.urlInput);
+        parseButton = findViewById(R.id.parseButton);
+        nodeList = findViewById(R.id.nodeList);
+        vpnSwitch = findViewById(R.id.vpnSwitch);
+        nodeInfo = findViewById(R.id.nodeInfo);
 
-        // 首先加载所有配置
-        loadConfigs();
-        
-        // 然后加载上次保存的配置
-        loadLastConfig();
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, configs);
+        nodeList.setAdapter(adapter);
 
-        // 设置按钮点击事件
-        Button fetchButton = findViewById(R.id.fetchButton);
-        fetchButton.setOnClickListener(v -> {
-            EditText urlEditText = findViewById(R.id.urlEditText);
-            String url = urlEditText.getText().toString().trim();
-            if (!url.isEmpty()) {
-                fetchAndParseUrl(url);
-            }
+        parseButton.setOnClickListener(v -> parseSubscription());
+        vpnSwitch.setOnClickListener(v -> toggleVpn());
+
+        nodeList.setOnItemClickListener((parent, view, position, id) -> {
+            TrojanConfig config = configs.get(position);
+            saveConfig(config);
+            Toast.makeText(this, "已选择节点: " + config.getServerAddress(), Toast.LENGTH_SHORT).show();
         });
+
+        // 注册 VPN 状态广播接收器
+        vpnStateReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                if (Constants.ACTION_VPN_STATE_CHANGED.equals(intent.getAction())) {
+                    boolean isConnected = intent.getBooleanExtra(Constants.EXTRA_VPN_STATE, false);
+                    updateVpnState(isConnected);
+                }
+            }
+        };
+        registerReceiver(vpnStateReceiver, new IntentFilter(Constants.ACTION_VPN_STATE_CHANGED),
+                Context.RECEIVER_NOT_EXPORTED);
+
+        // 初始化 VPN 状态
+        updateVpnState(isVpnServiceRunning());
+
+        // 恢复上次的订阅链接
+        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        String savedUrl = prefs.getString(KEY_SUBSCRIPTION_URL, "");
+        urlInput.setText(savedUrl);
+
+        // 恢复保存的节点列表
+        String savedNodes = prefs.getString(KEY_NODES, null);
+        if (savedNodes != null) {
+            try {
+                Gson gson = new Gson();
+                Type type = new TypeToken<List<TrojanConfig>>(){}.getType();
+                List<TrojanConfig> savedConfigs = gson.fromJson(savedNodes, type);
+                configs.clear();
+                configs.addAll(savedConfigs);
+                adapter.notifyDataSetChanged();
+                Log.d(TAG, "Restored " + configs.size() + " saved nodes");
+            } catch (Exception e) {
+                Log.e(TAG, "Error restoring saved nodes", e);
+            }
+        }
     }
 
-    private void fetchAndParseUrl(String url) {
+    private void parseSubscription() {
+        String url = urlInput.getText().toString().trim();
+        if (url.isEmpty()) {
+            Toast.makeText(this, "请输入订阅链接", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // 保存订阅链接
+        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+        prefs.edit().putString(KEY_SUBSCRIPTION_URL, url).apply();
+
         new Thread(() -> {
             try {
-                String base64Content = fetchUrlContent(url);
-                if (base64Content == null) return;
-
-                byte[] decodedBytes = Base64.decode(base64Content, Base64.DEFAULT);
-                String decodedContent = new String(decodedBytes);
-
-                List<TrojanNode> nodes = parseTrojanUrls(decodedContent);
-                List<TrojanConfig> configs = new ArrayList<>();
+                String base64Content = downloadUrl(url);
+                String decodedContent = new String(Base64.decode(base64Content, Base64.DEFAULT));
+                List<TrojanConfig> newConfigs = parseTrojanUrls(decodedContent);
                 
-                for (TrojanNode node : nodes) {
-                    TrojanConfig config = new TrojanConfig(
-                            node.getServer(),
-                            node.getPort(),
-                            node.getPassword(),
-                            node.getName(),
-                            node.getRegion()
-                    );
-                    configs.add(config);
-                    
-                    // 保存到数据库
-                    TrojanConfigDatabase database = TrojanConfigDatabase.getInstance(this);
-                    database.trojanConfigDao().insertConfig(config);
-                }
-
-                // 更新UI
                 runOnUiThread(() -> {
-                    this.configs.clear();
-                    this.configs.addAll(configs);
+                    configs.clear();
+                    configs.addAll(newConfigs);
                     adapter.notifyDataSetChanged();
+                    Toast.makeText(this, "解析成功: " + newConfigs.size() + " 个节点", Toast.LENGTH_SHORT).show();
+                    
+                    // 保存节点列表
+                    try {
+                        Gson gson = new Gson();
+                        String nodesJson = gson.toJson(configs);
+                        prefs.edit().putString(KEY_NODES, nodesJson).apply();
+                        Log.d(TAG, "Saved " + configs.size() + " nodes");
+                    } catch (Exception e) {
+                        Log.e(TAG, "Error saving nodes", e);
+                    }
                 });
-
             } catch (Exception e) {
-                e.printStackTrace();
+                Log.e(TAG, "Error parsing subscription", e);
                 runOnUiThread(() -> {
-                    Toast.makeText(this, "获取配置失败: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "解析失败: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                 });
             }
         }).start();
     }
 
-    private String fetchUrlContent(String urlString) throws Exception {
+    private String downloadUrl(String urlString) throws IOException {
         URL url = new URL(urlString);
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-        conn.setRequestMethod("GET");
-        
-        try (BufferedReader reader = new BufferedReader(
-                new InputStreamReader(conn.getInputStream()))) {
+        try {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
             StringBuilder content = new StringBuilder();
             String line;
             while ((line = reader.readLine()) != null) {
                 content.append(line);
             }
             return content.toString();
+        } finally {
+            conn.disconnect();
         }
     }
 
-    private List<TrojanNode> parseTrojanUrls(String content) {
-        List<TrojanNode> nodes = new ArrayList<>();
+    private List<TrojanConfig> parseTrojanUrls(String content) {
+        List<TrojanConfig> configs = new ArrayList<>();
         String[] lines = content.split("\n");
         for (String line : lines) {
             if (line.startsWith("trojan://")) {
-                nodes.add(new TrojanNode(line.trim()));
+                try {
+                    configs.add(TrojanConfig.fromUrl(line));
+                } catch (Exception e) {
+                    Log.e(TAG, "Error parsing trojan URL: " + line, e);
+                }
             }
         }
-        return nodes;
+        return configs;
     }
 
-    private void connectToTrojan(TrojanConfig config) {
-        try {
-            showLoading("正在连接...");
-            String serverAddress = config.getServerAddress();
-            int port = config.getServerPort();
-            String password = config.getPassword();
-            
-            TrojanService.getInstance().connect(serverAddress, port, password);
-            showSuccess("连接成功");
-            
-            // 连接成功后保存配置
-            saveLastConfig(config);
-            
-        } catch (Exception e) {
-            showError("连接失败：" + e.getMessage());
+    private void saveConfig(TrojanConfig config) {
+        SharedPreferences prefs = getSharedPreferences("TrojanPrefs", MODE_PRIVATE);
+        Gson gson = new Gson();
+        prefs.edit().putString("last_config", gson.toJson(config)).apply();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (vpnStateReceiver != null) {
+            unregisterReceiver(vpnStateReceiver);
         }
     }
 
-    private void showLoading(String message) {
-        // 使用 ProgressDialog 或 Toast 显示加载状态
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    private void toggleVpn() {
+        if (vpnSwitch.isChecked()) {
+            startVpn();
+        } else {
+            stopVpn();
+        }
     }
 
-    private void showSuccess(String message) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    private void startVpn() {
+        try {
+            SharedPreferences prefs = getSharedPreferences("TrojanPrefs", MODE_PRIVATE);
+            String configJson = prefs.getString("last_config", null);
+            
+            if (configJson == null) {
+                showError("请先选择节点");
+                vpnSwitch.setChecked(false);
+                return;
+            }
+
+            Gson gson = new Gson();
+            TrojanConfig config = gson.fromJson(configJson, TrojanConfig.class);
+            
+            if (config == null) {
+                showError("配置无效");
+                vpnSwitch.setChecked(false);
+                return;
+            }
+
+            Intent prepare = VpnService.prepare(this);
+            if (prepare != null) {
+                startActivityForResult(prepare, VPN_REQUEST_CODE);
+                lastConfig = config;
+                return;
+            }
+            
+            startVpnService(config);
+            
+        } catch (Exception e) {
+            Log.e(TAG, "Failed to start VPN", e);
+            showError("启动失败：" + e.getMessage());
+            vpnSwitch.setChecked(false);
+        }
+    }
+
+    private void startVpnService(TrojanConfig config) {
+        Intent intent = new Intent(this, ProxyVpnService.class);
+        intent.putExtra("server", config.getServerAddress());
+        intent.putExtra("port", config.getServerPort());
+        intent.putExtra("password", config.getPassword());
+        intent.putExtra("sni", config.getSni());
+        intent.putExtra("allowInsecure", config.isAllowInsecure());
+        startService(intent);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == VPN_REQUEST_CODE && resultCode == RESULT_OK) {
+            if (lastConfig != null) {
+                startVpnService(lastConfig);
+            }
+        } else {
+            vpnSwitch.setChecked(false);
+        }
+    }
+
+    private void stopVpn() {
+        stopService(new Intent(this, ProxyVpnService.class));
+    }
+
+    private void updateVpnState(boolean isConnected) {
+        vpnSwitch.setChecked(isConnected);
+        
+        if (isConnected) {
+            try {
+                SharedPreferences prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
+                String configJson = prefs.getString("last_config", null);
+                if (configJson != null) {
+                    Gson gson = new Gson();
+                    TrojanConfig config = gson.fromJson(configJson, TrojanConfig.class);
+                    if (config != null) {
+                        nodeInfo.setVisibility(View.VISIBLE);
+                        String displayName = config.getName() != null ? config.getName() : 
+                                           config.getServerAddress() + ":" + config.getServerPort();
+                        nodeInfo.setText(String.format("当前连接: %s", displayName));
+                        return;
+                    }
+                }
+            } catch (Exception e) {
+                Log.e(TAG, "Error showing node info", e);
+            }
+        }
+        
+        nodeInfo.setVisibility(View.GONE);
+    }
+
+    private boolean isVpnServiceRunning() {
+        ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
+            if (ProxyVpnService.class.getName().equals(service.service.getClassName())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private void showError(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-    }
-
-    private void loadConfigs() {
-        new Thread(() -> {
-            try {
-                TrojanConfigDatabase database = TrojanConfigDatabase.getInstance(this);
-                List<TrojanConfig> loadedConfigs = database.trojanConfigDao().getAllConfigs();
-                
-                runOnUiThread(() -> {
-                    configs.clear();
-                    configs.addAll(loadedConfigs);
-                    adapter.notifyDataSetChanged();
-                    
-                    // 如果有保存的上次使用的配置，则加载它
-                    loadLastConfig();
-                });
-            } catch (Exception e) {
-                e.printStackTrace();
-                runOnUiThread(() -> {
-                    Toast.makeText(this, "加载配置失败: " + e.getMessage(), Toast.LENGTH_SHORT).show();
-                });
-            }
-        }).start();
-    }
-
-    private void loadLastConfig() {
-        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
-        String lastConfigJson = prefs.getString(KEY_LAST_CONFIG, null);
-        
-        if (lastConfigJson != null) {
-            try {
-                Gson gson = new Gson();
-                TrojanConfig lastConfig = gson.fromJson(lastConfigJson, TrojanConfig.class);
-                
-                // 在配置列表中找到匹配的配置
-                int position = findConfigPosition(lastConfig);
-                if (position != -1) {
-                    // 更新UI显示选中状态
-                    adapter.setSelectedPosition(position);
-                    adapter.notifyDataSetChanged();
-                    
-                    // 自动连接
-                    connectToTrojan(lastConfig);
-                }
-            } catch (Exception e) {
-                showError("加载上次配置失败：" + e.getMessage());
-            }
-        }
-    }
-    
-    // 查找配置在列表中的位置
-    private int findConfigPosition(TrojanConfig config) {
-        for (int i = 0; i < configs.size(); i++) {
-            TrojanConfig item = configs.get(i);
-            if (item.getServerAddress().equals(config.getServerAddress()) 
-                && item.getServerPort() == config.getServerPort()) {
-                return i;
-            }
-        }
-        return -1;
-    }
-    
-    // 在成功连接时保存配置
-    private void saveLastConfig(TrojanConfig config) {
-        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
-        SharedPreferences.Editor editor = prefs.edit();
-        
-        Gson gson = new Gson();
-        String configJson = gson.toJson(config);
-        
-        editor.putString(KEY_LAST_CONFIG, configJson);
-        editor.apply();
-        
-        // 确保配置也保存在数据库中
-        new Thread(() -> {
-            try {
-                TrojanConfigDatabase database = TrojanConfigDatabase.getInstance(this);
-                database.trojanConfigDao().insertConfig(config);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }).start();
     }
 }

@@ -1,5 +1,9 @@
 [
     {
+        "merged": "com.example.proxyclient.app-merged_res-35:/drawable_ic_vpn_connected.xml.flat",
+        "source": "com.example.proxyclient.app-main-37:/drawable/ic_vpn_connected.xml"
+    },
+    {
         "merged": "com.example.proxyclient.app-merged_res-35:/drawable_item_background_selector.xml.flat",
         "source": "com.example.proxyclient.app-main-37:/drawable/item_background_selector.xml"
     },
@@ -8,11 +12,31 @@
         "source": "com.example.proxyclient.app-main-37:/layout/item_trojan_config.xml"
     },
     {
+        "merged": "com.example.proxyclient.app-merged_res-35:/drawable_ic_vpn.xml.flat",
+        "source": "com.example.proxyclient.app-main-37:/drawable/ic_vpn.xml"
+    },
+    {
         "merged": "com.example.proxyclient.app-merged_res-35:/layout_activity_main.xml.flat",
         "source": "com.example.proxyclient.app-main-37:/layout/activity_main.xml"
     },
     {
+        "merged": "com.example.proxyclient.app-merged_res-35:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.example.proxyclient.app-main-37:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.example.proxyclient.app-merged_res-35:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.example.proxyclient.app-main-37:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
         "merged": "com.example.proxyclient.app-merged_res-35:/layout_item_trojan_node.xml.flat",
         "source": "com.example.proxyclient.app-main-37:/layout/item_trojan_node.xml"
+    },
+    {
+        "merged": "com.example.proxyclient.app-merged_res-35:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.example.proxyclient.app-main-37:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.example.proxyclient.app-merged_res-35:/drawable_ic_vpn_disconnected.xml.flat",
+        "source": "com.example.proxyclient.app-main-37:/drawable/ic_vpn_disconnected.xml"
     }
 ]

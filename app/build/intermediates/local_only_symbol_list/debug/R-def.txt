@@ -1,6 +1,7 @@
 R_DEF: Internal format may change without notice
 local
 color black
+color ic_launcher_background
 color purple_500
 color purple_700
 color teal_200
@@ -11,16 +12,30 @@ dimen shape_corner_extra_small
 dimen shape_corner_large
 dimen shape_corner_medium
 dimen shape_corner_small
+drawable ic_launcher_foreground
+drawable ic_vpn
+drawable ic_vpn_connected
+drawable ic_vpn_disconnected
 drawable item_background_selector
-id fetchButton
-id recyclerView
+id nodeInfo
+id nodeList
+id parseButton
 id tvName
 id tvRegion
 id tvServer
-id urlEditText
+id urlInput
+id vpnSwitch
 layout activity_main
 layout item_trojan_config
 layout item_trojan_node
+mipmap ic_launcher
+mipmap ic_launcher_round
+string app_name
+string connect_failed
+string connect_success
+string connecting
+string disconnected
+string vpn_permission_required
 style ShapeAppearance.App.LargeComponent
 style ShapeAppearance.App.MediumComponent
 style ShapeAppearance.App.SmallComponent
