@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.proxyclient.app-mergeDebugResources-30:/values-th/values-th.xml",
+            "outputFile": "com.example.proxyclient.app-mergeDebugResources-33:/values-th/values-th.xml",
             "map": [
                 {
                     "source": "C:\\Users\\windy\\.gradle\\caches\\transforms-3\\f0f4ee7c3b88100b2d2cd4b05ab423cd\\transformed\\core-1.9.0\\res\\values-th\\values-th.xml",

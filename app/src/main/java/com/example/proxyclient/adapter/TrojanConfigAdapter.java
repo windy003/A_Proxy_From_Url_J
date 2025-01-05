@@ -12,6 +12,7 @@ import java.util.List;
 
 public class TrojanConfigAdapter extends RecyclerView.Adapter<TrojanConfigAdapter.ViewHolder> {
     private List<TrojanConfig> configs;
+    private int selectedPosition = -1;  // 记录选中的位置
     private OnItemClickListener listener;
 
     public interface OnItemClickListener {
@@ -46,6 +47,7 @@ public class TrojanConfigAdapter extends RecyclerView.Adapter<TrojanConfigAdapte
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         TrojanConfig config = configs.get(position);
+        holder.itemView.setSelected(position == selectedPosition);
         holder.tvRegion.setText(String.format("[%s]", config.getRegion()));
         holder.tvName.setText(config.getRemark());
         holder.tvServer.setText(String.format("%s:%d", 
@@ -70,5 +72,9 @@ public class TrojanConfigAdapter extends RecyclerView.Adapter<TrojanConfigAdapte
 
     public void setOnItemClickListener(OnItemClickListener listener) {
         this.listener = listener;
+    }
+
+    public void setSelectedPosition(int position) {
+        this.selectedPosition = position;
     }
 } 

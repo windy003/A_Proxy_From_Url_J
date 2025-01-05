@@ -11,6 +11,7 @@ dimen shape_corner_extra_small
 dimen shape_corner_large
 dimen shape_corner_medium
 dimen shape_corner_small
+drawable item_background_selector
 id fetchButton
 id recyclerView
 id tvName

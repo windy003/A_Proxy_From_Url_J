@@ -1,6 +1,13 @@
 package com.example.proxyclient.model;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity(tableName = "trojan_config")
 public class TrojanConfig {
+    @PrimaryKey(autoGenerate = true)
+    private int id;
+    
     private String serverAddress;
     private int serverPort;
     private String password;
@@ -27,6 +34,7 @@ public class TrojanConfig {
     public String getPeer() { return peer; }
     public String getSni() { return sni; }
     public boolean isAllowInsecure() { return allowInsecure; }
+    public int getId() { return id; }
 
     // Setters
     public void setServerAddress(String serverAddress) { this.serverAddress = serverAddress; }
@@ -37,4 +45,5 @@ public class TrojanConfig {
     public void setPeer(String peer) { this.peer = peer; }
     public void setSni(String sni) { this.sni = sni; }
     public void setAllowInsecure(boolean allowInsecure) { this.allowInsecure = allowInsecure; }
+    public void setId(int id) { this.id = id; }
 }
