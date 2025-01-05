@@ -4,6 +4,8 @@ package com.example.proxyclient.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,11 +22,20 @@ public final class ActivityMainBinding implements ViewBinding {
   private final LinearLayout rootView;
 
   @NonNull
+  public final Button fetchButton;
+
+  @NonNull
   public final RecyclerView recyclerView;
 
-  private ActivityMainBinding(@NonNull LinearLayout rootView, @NonNull RecyclerView recyclerView) {
+  @NonNull
+  public final EditText urlEditText;
+
+  private ActivityMainBinding(@NonNull LinearLayout rootView, @NonNull Button fetchButton,
+      @NonNull RecyclerView recyclerView, @NonNull EditText urlEditText) {
     this.rootView = rootView;
+    this.fetchButton = fetchButton;
     this.recyclerView = recyclerView;
+    this.urlEditText = urlEditText;
   }
 
   @Override
@@ -54,13 +65,26 @@ public final class ActivityMainBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.fetchButton;
+      Button fetchButton = ViewBindings.findChildViewById(rootView, id);
+      if (fetchButton == null) {
+        break missingId;
+      }
+
       id = R.id.recyclerView;
       RecyclerView recyclerView = ViewBindings.findChildViewById(rootView, id);
       if (recyclerView == null) {
         break missingId;
       }
 
-      return new ActivityMainBinding((LinearLayout) rootView, recyclerView);
+      id = R.id.urlEditText;
+      EditText urlEditText = ViewBindings.findChildViewById(rootView, id);
+      if (urlEditText == null) {
+        break missingId;
+      }
+
+      return new ActivityMainBinding((LinearLayout) rootView, fetchButton, recyclerView,
+          urlEditText);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

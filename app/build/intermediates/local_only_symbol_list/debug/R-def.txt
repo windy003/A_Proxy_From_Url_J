@@ -11,9 +11,11 @@ dimen shape_corner_extra_small
 dimen shape_corner_large
 dimen shape_corner_medium
 dimen shape_corner_small
+id fetchButton
 id recyclerView
 id tvName
 id tvServer
+id urlEditText
 layout activity_main
 layout item_trojan_config
 style ShapeAppearance.App.LargeComponent

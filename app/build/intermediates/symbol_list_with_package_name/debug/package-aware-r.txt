@@ -3258,6 +3258,7 @@ id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
 id fade
+id fetchButton
 id fill
 id fill_horizontal
 id fill_vertical
@@ -3556,6 +3557,7 @@ id unchecked
 id uniform
 id unlabeled
 id up
+id urlEditText
 id useLogo
 id vertical_only
 id view_offset_helper
