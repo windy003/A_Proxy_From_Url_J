@@ -91,23 +91,6 @@
                     }
                 },
                 {
-                    "source": "D:\\files\\projects\\test\\app\\src\\main\\res\\values\\colors.xml",
-                    "from": {
-                        "startLines": "6,2,3,4,5,7",
-                        "startColumns": "4,4,4,4,4,4",
-                        "startOffsets": "245,57,105,153,199,288",
-                        "endColumns": "41,46,46,44,44,41",
-                        "endOffsets": "282,99,147,193,239,325"
-                    },
-                    "to": {
-                        "startLines": "640,945,946,957,958,961",
-                        "startColumns": "4,4,4,4,4,4",
-                        "startOffsets": "32798,55525,55572,56316,56361,56527",
-                        "endColumns": "41,46,46,44,44,41",
-                        "endOffsets": "32835,55567,55614,56356,56401,56564"
-                    }
-                },
-                {
                     "source": "C:\\Users\\windy\\.gradle\\caches\\transforms-3\\84bc3918985e6daf2c72a2b13ca12a91\\transformed\\customview-poolingcontainer-1.0.0\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2,3",
@@ -256,22 +239,20 @@
                     }
                 },
                 {
-                    "source": "D:\\files\\projects\\test\\app\\src\\main\\res\\values\\themes.xml",
+                    "source": "D:\\files\\projects\\A_Proxy_From_Url_J\\app\\src\\main\\res\\values\\colors.xml",
                     "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "57",
-                        "endLines": "27",
-                        "endColumns": "12",
-                        "endOffsets": "1509"
+                        "startLines": "6,2,3,4,5,7",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "245,57,105,153,199,288",
+                        "endColumns": "41,46,46,44,44,41",
+                        "endOffsets": "282,99,147,193,239,325"
                     },
                     "to": {
-                        "startLines": "6526",
-                        "startColumns": "4",
-                        "startOffsets": "458072",
-                        "endLines": "6551",
-                        "endColumns": "12",
-                        "endOffsets": "459416"
+                        "startLines": "640,945,946,957,958,961",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "32798,55525,55572,56316,56361,56527",
+                        "endColumns": "41,46,46,44,44,41",
+                        "endOffsets": "32835,55567,55614,56356,56401,56564"
                     }
                 },
                 {
@@ -291,6 +272,42 @@
                         "endLines": "13554",
                         "endColumns": "24",
                         "endOffsets": "799145"
+                    }
+                },
+                {
+                    "source": "D:\\files\\projects\\A_Proxy_From_Url_J\\app\\src\\main\\res\\values\\shape.xml",
+                    "from": {
+                        "startLines": "15,9,3",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "544,309,75",
+                        "endLines": "18,12,6",
+                        "endColumns": "12,12,12",
+                        "endOffsets": "752,518,282"
+                    },
+                    "to": {
+                        "startLines": "5836,5840,5844",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "410081,410291,410502",
+                        "endLines": "5839,5843,5847",
+                        "endColumns": "12,12,12",
+                        "endOffsets": "410286,410497,410706"
+                    }
+                },
+                {
+                    "source": "D:\\files\\projects\\A_Proxy_From_Url_J\\app\\src\\main\\res\\values\\dimens.xml",
+                    "from": {
+                        "startLines": "6,2,5,4,3",
+                        "startColumns": "4,4,4,4,4",
+                        "startOffsets": "266,57,215,163,113",
+                        "endColumns": "55,54,49,50,48",
+                        "endOffsets": "317,107,260,209,157"
+                    },
+                    "to": {
+                        "startLines": "1750,1751,1752,1753,1754",
+                        "startColumns": "4,4,4,4,4",
+                        "startOffsets": "116924,116980,117035,117085,117136",
+                        "endColumns": "55,54,49,50,48",
+                        "endOffsets": "116975,117030,117080,117131,117180"
                     }
                 },
                 {
@@ -332,23 +349,6 @@
                     }
                 },
                 {
-                    "source": "D:\\files\\projects\\test\\app\\src\\main\\res\\values\\dimens.xml",
-                    "from": {
-                        "startLines": "6,2,5,4,3",
-                        "startColumns": "4,4,4,4,4",
-                        "startOffsets": "266,57,215,163,113",
-                        "endColumns": "55,54,49,50,48",
-                        "endOffsets": "317,107,260,209,157"
-                    },
-                    "to": {
-                        "startLines": "1750,1751,1752,1753,1754",
-                        "startColumns": "4,4,4,4,4",
-                        "startOffsets": "116924,116980,117035,117085,117136",
-                        "endColumns": "55,54,49,50,48",
-                        "endOffsets": "116975,117030,117080,117131,117180"
-                    }
-                },
-                {
                     "source": "C:\\Users\\windy\\.gradle\\caches\\transforms-3\\39e6174abcdccbd0e128a101e3d128db\\transformed\\savedstate-1.2.1\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2",
@@ -366,22 +366,22 @@
                     }
                 },
                 {
-                    "source": "D:\\files\\projects\\test\\app\\src\\main\\res\\values\\shape.xml",
+                    "source": "D:\\files\\projects\\A_Proxy_From_Url_J\\app\\src\\main\\res\\values\\themes.xml",
                     "from": {
-                        "startLines": "15,9,3",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "544,309,75",
-                        "endLines": "18,12,6",
-                        "endColumns": "12,12,12",
-                        "endOffsets": "752,518,282"
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "57",
+                        "endLines": "27",
+                        "endColumns": "12",
+                        "endOffsets": "1509"
                     },
                     "to": {
-                        "startLines": "5836,5840,5844",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "410081,410291,410502",
-                        "endLines": "5839,5843,5847",
-                        "endColumns": "12,12,12",
-                        "endOffsets": "410286,410497,410706"
+                        "startLines": "6526",
+                        "startColumns": "4",
+                        "startOffsets": "458072",
+                        "endLines": "6551",
+                        "endColumns": "12",
+                        "endOffsets": "459416"
                     }
                 },
                 {
