@@ -3551,6 +3551,7 @@ int id transition_scene_layoutid_cache 0x7f0801d7
 int id transition_transform 0x7f0801d8
 int id triangle 0x7f0801d9
 int id tvName 0x7f0801da
+int id tvRegion 0x7f0801f8
 int id tvServer 0x7f0801db
 int id unchecked 0x7f0801dc
 int id uniform 0x7f0801dd
@@ -3708,6 +3709,7 @@ int layout design_navigation_menu_item 0x7f0b002a
 int layout design_text_input_end_icon 0x7f0b002b
 int layout design_text_input_start_icon 0x7f0b002c
 int layout item_trojan_config 0x7f0b002d
+int layout item_trojan_node 0x7f0b006b
 int layout m3_alert_dialog 0x7f0b002e
 int layout m3_alert_dialog_actions 0x7f0b002f
 int layout m3_alert_dialog_title 0x7f0b0030

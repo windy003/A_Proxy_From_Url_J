@@ -22,48 +22,42 @@ import android.os.Handler;
 import android.os.Looper;
 import android.widget.Button;
 import android.widget.EditText;
+import java.nio.charset.StandardCharsets;
+import com.example.proxyclient.adapter.TrojanConfigAdapter;
+import com.example.proxyclient.model.TrojanConfig;
+import com.example.proxyclient.model.TrojanNode;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     private RecyclerView recyclerView;
-    private MyAdapter adapter;
-    private EditText urlEditText;
-    private Button fetchButton;
-    private final Handler mainHandler = new Handler(Looper.getMainLooper());
+    private TrojanConfigAdapter adapter;
+    private Handler mainHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mainHandler = new Handler(Looper.getMainLooper());
         
-        // 初始化视图
-        urlEditText = findViewById(R.id.urlEditText);
-        fetchButton = findViewById(R.id.fetchButton);
+        // 初始化RecyclerView
         recyclerView = findViewById(R.id.recyclerView);
-        
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new MyAdapter(new ArrayList<>());
+        adapter = new TrojanConfigAdapter(new ArrayList<>());
         recyclerView.setAdapter(adapter);
-        
+
         // 设置按钮点击事件
-        fetchButton.setOnClickListener(v -> fetchAndParseUrl());
-        
-        // 设置列表项点击事件
-        adapter.setOnItemClickListener(trojanUrl -> {
-            Toast.makeText(MainActivity.this, 
-                "正在连接: " + trojanUrl, 
-                Toast.LENGTH_SHORT).show();
-            connectToTrojan(trojanUrl);
+        Button fetchButton = findViewById(R.id.fetchButton);
+        fetchButton.setOnClickListener(v -> {
+            EditText urlEditText = findViewById(R.id.urlEditText);
+            String url = urlEditText.getText().toString().trim();
+            if (!url.isEmpty()) {
+                fetchAndParseUrl(url);
+            }
         });
     }
 
-    private void fetchAndParseUrl() {
-        String url = urlEditText.getText().toString().trim();
-        if (url.isEmpty()) {
-            Toast.makeText(this, "请输入URL", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
+    private void fetchAndParseUrl(String url) {
         new Thread(() -> {
             try {
                 // 获取base64内容
@@ -75,13 +69,26 @@ public class MainActivity extends AppCompatActivity {
                 String decodedContent = new String(decodedBytes);
 
                 // 解析trojan链接
-                List<String> trojanUrls = parseTrojanUrls(decodedContent);
+                List<TrojanNode> nodes = parseTrojanUrls(decodedContent);
+
+                // 转换为TrojanConfig列表
+                List<TrojanConfig> configs = new ArrayList<>();
+                for (TrojanNode node : nodes) {
+                    TrojanConfig config = new TrojanConfig(
+                        node.getServer(),
+                        node.getPort(),
+                        node.getPassword(),
+                        node.getName(),
+                        node.getRegion()
+                    );
+                    configs.add(config);
+                }
 
                 // 在主线程更新UI
                 mainHandler.post(() -> {
-                    adapter.updateData(trojanUrls);
+                    adapter.updateData(configs);
                     Toast.makeText(MainActivity.this, 
-                        "成功获取 " + trojanUrls.size() + " 个节点", 
+                        "成功获取 " + configs.size() + " 个节点", 
                         Toast.LENGTH_SHORT).show();
                 });
 
@@ -112,76 +119,14 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private List<String> parseTrojanUrls(String content) {
-        List<String> urls = new ArrayList<>();
-        // 按行分割
+    private List<TrojanNode> parseTrojanUrls(String content) {
+        List<TrojanNode> nodes = new ArrayList<>();
         String[] lines = content.split("\n");
         for (String line : lines) {
             if (line.startsWith("trojan://")) {
-                urls.add(line.trim());
+                nodes.add(new TrojanNode(line.trim()));
             }
         }
-        return urls;
-    }
-
-    private void connectToTrojan(String trojanUrl) {
-        // TODO: 实现trojan连接逻辑
-        Log.d(TAG, "Connecting to: " + trojanUrl);
-    }
-}
-
-class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
-    private List<String> dataList;
-    private OnItemClickListener listener;
-
-    public interface OnItemClickListener {
-        void onItemClick(String trojanUrl);
-    }
-
-    public void setOnItemClickListener(OnItemClickListener listener) {
-        this.listener = listener;
-    }
-
-    public MyAdapter(List<String> dataList) {
-        this.dataList = dataList;
-    }
-
-    public void updateData(List<String> newData) {
-        this.dataList = newData;
-        notifyDataSetChanged();
-    }
-
-    @NonNull
-    @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext())
-                .inflate(android.R.layout.simple_list_item_1, parent, false);
-        return new ViewHolder(view);
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        String item = dataList.get(position);
-        holder.textView.setText(item);
-        
-        holder.itemView.setOnClickListener(v -> {
-            if (listener != null) {
-                listener.onItemClick(item);
-            }
-        });
-    }
-
-    @Override
-    public int getItemCount() {
-        return dataList.size();
-    }
-
-    static class ViewHolder extends RecyclerView.ViewHolder {
-        final TextView textView;
-
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
-            textView = itemView.findViewById(android.R.id.text1);
-        }
+        return nodes;
     }
 }

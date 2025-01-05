@@ -14,10 +14,12 @@ dimen shape_corner_small
 id fetchButton
 id recyclerView
 id tvName
+id tvRegion
 id tvServer
 id urlEditText
 layout activity_main
 layout item_trojan_config
+layout item_trojan_node
 style ShapeAppearance.App.LargeComponent
 style ShapeAppearance.App.MediumComponent
 style ShapeAppearance.App.SmallComponent

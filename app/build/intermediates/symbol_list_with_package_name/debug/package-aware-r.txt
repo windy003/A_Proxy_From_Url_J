@@ -3552,6 +3552,7 @@ id transition_scene_layoutid_cache
 id transition_transform
 id triangle
 id tvName
+id tvRegion
 id tvServer
 id unchecked
 id uniform
@@ -3709,6 +3710,7 @@ layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout item_trojan_config
+layout item_trojan_node
 layout m3_alert_dialog
 layout m3_alert_dialog_actions
 layout m3_alert_dialog_title
