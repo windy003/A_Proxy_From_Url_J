@@ -11,6 +11,7 @@ MERGED from [androidx.appcompat:appcompat-resources:1.6.1] C:\Users\windy\.gradl
 MERGED from [androidx.appcompat:appcompat:1.6.1] C:\Users\windy\.gradle\caches\transforms-3\3c3e8d87979f80077854f6234c4ddaef\transformed\appcompat-1.6.1\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.viewpager2:viewpager2:1.1.0-beta02] C:\Users\windy\.gradle\caches\transforms-3\fd7ec6f2e354095163613c19dc1d7d3e\transformed\viewpager2-1.1.0-beta02\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.recyclerview:recyclerview:1.3.2] C:\Users\windy\.gradle\caches\transforms-3\e70b557cd04274fd79b842f90a2f5179\transformed\recyclerview-1.3.2\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\windy\.gradle\caches\transforms-3\9eb27526ac9bb145371b7a50a7e1377c\transformed\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.room:room-runtime:2.6.1] C:\Users\windy\.gradle\caches\transforms-3\2c5ddfa82d9e551fe5b89586e1bcabc6\transformed\room-runtime-2.6.1\AndroidManifest.xml:17:1-31:12
 MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] C:\Users\windy\.gradle\caches\transforms-3\a30bbc082d6fec3a3e5b9ab5ec3d346a\transformed\emoji2-views-helper-1.2.0\AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.emoji2:emoji2:1.2.0] C:\Users\windy\.gradle\caches\transforms-3\4cbcf27c467347a1a697d011e0391f2d\transformed\emoji2-1.2.0\AndroidManifest.xml:17:1-35:12
@@ -37,7 +38,6 @@ MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\windy\.gradle\caches\t
 MERGED from [androidx.customview:customview:1.1.0] C:\Users\windy\.gradle\caches\transforms-3\14f78a55e4f2d821743a1f25c372cbbd\transformed\customview-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.core:core:1.9.0] C:\Users\windy\.gradle\caches\transforms-3\f0f4ee7c3b88100b2d2cd4b05ab423cd\transformed\core-1.9.0\AndroidManifest.xml:17:1-30:12
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\windy\.gradle\caches\transforms-3\909dfe99be248bb21ba7932ab8b17550\transformed\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
-MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\windy\.gradle\caches\transforms-3\9eb27526ac9bb145371b7a50a7e1377c\transformed\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\windy\.gradle\caches\transforms-3\2f11a50805205a05e3008839124abdf6\transformed\core-runtime-2.2.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.sqlite:sqlite-framework:2.4.0] C:\Users\windy\.gradle\caches\transforms-3\6c51b2007f872bf6be0455c37fb5038e\transformed\sqlite-framework-2.4.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.sqlite:sqlite:2.4.0] C:\Users\windy\.gradle\caches\transforms-3\d94200d8de6f8f40665b94d1a9998799\transformed\sqlite-2.4.0\AndroidManifest.xml:17:1-22:12
@@ -186,6 +186,8 @@ MERGED from [androidx.viewpager2:viewpager2:1.1.0-beta02] C:\Users\windy\.gradle
 MERGED from [androidx.viewpager2:viewpager2:1.1.0-beta02] C:\Users\windy\.gradle\caches\transforms-3\fd7ec6f2e354095163613c19dc1d7d3e\transformed\viewpager2-1.1.0-beta02\AndroidManifest.xml:5:5-44
 MERGED from [androidx.recyclerview:recyclerview:1.3.2] C:\Users\windy\.gradle\caches\transforms-3\e70b557cd04274fd79b842f90a2f5179\transformed\recyclerview-1.3.2\AndroidManifest.xml:20:5-44
 MERGED from [androidx.recyclerview:recyclerview:1.3.2] C:\Users\windy\.gradle\caches\transforms-3\e70b557cd04274fd79b842f90a2f5179\transformed\recyclerview-1.3.2\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\windy\.gradle\caches\transforms-3\9eb27526ac9bb145371b7a50a7e1377c\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\windy\.gradle\caches\transforms-3\9eb27526ac9bb145371b7a50a7e1377c\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.room:room-runtime:2.6.1] C:\Users\windy\.gradle\caches\transforms-3\2c5ddfa82d9e551fe5b89586e1bcabc6\transformed\room-runtime-2.6.1\AndroidManifest.xml:21:5-44
 MERGED from [androidx.room:room-runtime:2.6.1] C:\Users\windy\.gradle\caches\transforms-3\2c5ddfa82d9e551fe5b89586e1bcabc6\transformed\room-runtime-2.6.1\AndroidManifest.xml:21:5-44
 MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] C:\Users\windy\.gradle\caches\transforms-3\a30bbc082d6fec3a3e5b9ab5ec3d346a\transformed\emoji2-views-helper-1.2.0\AndroidManifest.xml:5:5-44
@@ -238,8 +240,6 @@ MERGED from [androidx.core:core:1.9.0] C:\Users\windy\.gradle\caches\transforms-
 MERGED from [androidx.core:core:1.9.0] C:\Users\windy\.gradle\caches\transforms-3\f0f4ee7c3b88100b2d2cd4b05ab423cd\transformed\core-1.9.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\windy\.gradle\caches\transforms-3\909dfe99be248bb21ba7932ab8b17550\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\windy\.gradle\caches\transforms-3\909dfe99be248bb21ba7932ab8b17550\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\windy\.gradle\caches\transforms-3\9eb27526ac9bb145371b7a50a7e1377c\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\windy\.gradle\caches\transforms-3\9eb27526ac9bb145371b7a50a7e1377c\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\windy\.gradle\caches\transforms-3\2f11a50805205a05e3008839124abdf6\transformed\core-runtime-2.2.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.arch.core:core-runtime:2.2.0] C:\Users\windy\.gradle\caches\transforms-3\2f11a50805205a05e3008839124abdf6\transformed\core-runtime-2.2.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.sqlite:sqlite-framework:2.4.0] C:\Users\windy\.gradle\caches\transforms-3\6c51b2007f872bf6be0455c37fb5038e\transformed\sqlite-framework-2.4.0\AndroidManifest.xml:20:5-44

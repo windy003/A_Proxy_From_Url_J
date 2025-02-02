@@ -1,9 +1,21 @@
 package com.example.proxyclient.service;
 
-import com.example.proxyclient.model.TrojanConfig;
+import android.util.Log;
+import com.example.proxyclient.model.TrojanConfig;  // 修改为正确的包名
 
 public class TrojanService {
+    private static final String TAG = "TrojanService";
     private static TrojanService instance;
+    
+    static {
+        System.loadLibrary("trojan");  // 加载 libtrojan.so
+    }
+    
+    // native 方法声明
+    private native int initTrojan(String config);
+    private native int startTrojan();
+    private native void stopTrojan();
+    private native boolean isTrojanRunning();
     
     private TrojanService() {
         // 私有构造函数
@@ -17,23 +29,42 @@ public class TrojanService {
     }
     
     public void connect(TrojanConfig config) throws Exception {
-        if (config.getServerAddress() == null || config.getServerAddress().isEmpty()) {
-            throw new IllegalArgumentException("服务器地址不能为空");
+        try {
+            // 使用现有 TrojanConfig 的方法生成配置
+            String configJson = String.format(
+                "{\"server\":\"%s\",\"server_port\":%d,\"password\":\"%s\",\"ssl\":{\"sni\":\"%s\",\"verify\":%b}}",
+                config.getServerAddress(),
+                config.getServerPort(),
+                config.getPassword(),
+                config.getSni(),
+                !config.isAllowInsecure()
+            );
+            
+            Log.d(TAG, "Connecting with config: " + configJson);
+            
+            int result = initTrojan(configJson);
+            if (result != 0) {
+                throw new Exception("Failed to init Trojan: " + result);
+            }
+            
+            result = startTrojan();
+            if (result != 0) {
+                throw new Exception("Failed to start Trojan: " + result);
+            }
+            
+            Log.i(TAG, "Trojan started successfully");
+        } catch (Exception e) {
+            Log.e(TAG, "Error in connect", e);
+            throw e;
         }
-        
-        if (config.getServerPort() <= 0 || config.getServerPort() > 65535) {
-            throw new IllegalArgumentException("端口号无效");
-        }
-        
-        if (config.getPassword() == null || config.getPassword().isEmpty()) {
-            throw new IllegalArgumentException("密码不能为空");
-        }
-        
-        // TODO: 调用 native 方法启动 Trojan
-        // 这里需要实现 JNI 调用
     }
     
     public void disconnect() {
-        // TODO: 实现断开连接的逻辑
+        try {
+            Log.d(TAG, "Disconnecting Trojan");
+            stopTrojan();
+        } catch (Exception e) {
+            Log.e(TAG, "Error in disconnect", e);
+        }
     }
 } 

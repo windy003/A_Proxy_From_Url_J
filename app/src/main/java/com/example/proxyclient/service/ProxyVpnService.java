@@ -21,7 +21,7 @@ import com.example.proxyclient.Constants;
 
 public class ProxyVpnService extends VpnService {
     private static final String TAG = "ProxyVpnService";
-    private static final String CHANNEL_ID = "vpn_channel";
+    private static final String CHANNEL_ID = "proxy_vpn_channel";
     private static final int NOTIFICATION_ID = 1;
     
     private ParcelFileDescriptor vpnInterface;
@@ -35,6 +35,7 @@ public class ProxyVpnService extends VpnService {
     public void onCreate() {
         super.onCreate();
         Log.d(TAG, "VPN Service onCreate");
+        createNotificationChannel();
         broadcastVpnState(true);
     }
     
@@ -55,9 +56,14 @@ public class ProxyVpnService extends VpnService {
             
             Log.d(TAG, "Server: " + serverAddress + ":" + serverPort);
             
-            startForeground(NOTIFICATION_ID, 
-                           createNotification("正在连接..."),
-                           ServiceInfo.FOREGROUND_SERVICE_TYPE_SPECIAL_USE);
+            // Create notification
+            Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
+                .setContentTitle("代理 VPN 服务")
+                .setContentText("VPN 服务正在运行")
+                .setSmallIcon(R.drawable.ic_launcher_foreground)
+                .build();
+            
+            startForeground(NOTIFICATION_ID, notification);
             
             if (establishVpn()) {
                 broadcastVpnState(true);
@@ -229,13 +235,10 @@ public class ProxyVpnService extends VpnService {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel(
                 CHANNEL_ID,
-                "VPN Status",
+                "代理 VPN 服务",
                 NotificationManager.IMPORTANCE_LOW);
-                
             NotificationManager manager = getSystemService(NotificationManager.class);
-            if (manager != null) {
-                manager.createNotificationChannel(channel);
-            }
+            manager.createNotificationChannel(channel);
         }
     }
     
