@@ -13,6 +13,7 @@ dimen shape_corner_large
 dimen shape_corner_medium
 dimen shape_corner_small
 drawable ic_launcher_foreground
+drawable ic_notification
 drawable ic_vpn
 drawable ic_vpn_connected
 drawable ic_vpn_disconnected

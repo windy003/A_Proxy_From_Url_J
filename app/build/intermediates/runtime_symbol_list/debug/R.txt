@@ -3002,6 +3002,7 @@ int drawable ic_mtrl_checked_circle 0x7f07008e
 int drawable ic_mtrl_chip_checked_black 0x7f07008f
 int drawable ic_mtrl_chip_checked_circle 0x7f070090
 int drawable ic_mtrl_chip_close_circle 0x7f070091
+int drawable ic_notification 0x7f0700e1
 int drawable ic_search_black_24 0x7f070092
 int drawable ic_vpn 0x7f070093
 int drawable ic_vpn_connected 0x7f070094

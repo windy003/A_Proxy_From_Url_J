@@ -1,0 +1,1 @@
+ninja: error: 'C:/Users/windy/AppData/Local/Android/Sdk/ndk/25.1.8937393/sources/openssl/lib/arm64-v8a/libssl.so', needed by 'D:/files/projects/A_Proxy_From_Url_J/app/build/intermediates/cxx/Debug/6p1r4p5x/obj/arm64-v8a/libtrojan.so', missing and no known rule to make it

@@ -1,5 +1,9 @@
 # ninja log v5
-0	623	7601847605234746	CMakeFiles/trojan-jni.dir/trojan_jni.cpp.o	4ca8e3160f0d369e
-625	850	7601847607495359	D:/files/projects/A_Proxy_From_Url_J/app/build/intermediates/cxx/Debug/6p1r4p5x/obj/arm64-v8a/libtrojan-jni.so	da6bfe42030bddd4
-8	512	7601848887111393	CMakeFiles/trojan-jni.dir/trojan_jni.cpp.o	4ca8e3160f0d369e
-513	742	7601848889409398	D:/files/projects/A_Proxy_From_Url_J/app/build/intermediates/cxx/Debug/6p1r4p5x/obj/arm64-v8a/libtrojan-jni.so	da6bfe42030bddd4
+7	622	7601907892953454	CMakeFiles/trojan.dir/trojan.cpp.o	55aa8eab9e0bf25d
+2	262	7601910901301561	D:/files/projects/A_Proxy_From_Url_J/app/build/intermediates/cxx/Debug/6p1r4p5x/obj/arm64-v8a/libtrojan.so	5861d68bba5b6614
+1	659	7601912226295651	CMakeFiles/trojan.dir/trojan_jni.cpp.o	9344f646f6196c27
+659	1049	7601912230196294	D:/files/projects/A_Proxy_From_Url_J/app/build/intermediates/cxx/Debug/6p1r4p5x/obj/arm64-v8a/libtrojan.so	8dadd0ce2dc1903c
+3	911	7601913259225248	CMakeFiles/trojan.dir/trojan_jni.cpp.o	9344f646f6196c27
+912	1149	7601913261530389	D:/files/projects/A_Proxy_From_Url_J/app/build/intermediates/cxx/Debug/6p1r4p5x/obj/arm64-v8a/libtrojan.so	8dadd0ce2dc1903c
+2	667	7601915093593459	CMakeFiles/trojan.dir/trojan_jni.cpp.o	9344f646f6196c27
+667	879	7601915095691884	D:/files/projects/A_Proxy_From_Url_J/app/build/intermediates/cxx/Debug/6p1r4p5x/obj/arm64-v8a/libtrojan.so	8dadd0ce2dc1903c

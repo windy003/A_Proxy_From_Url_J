@@ -19,256 +19,237 @@ import android.content.pm.ServiceInfo;
 import android.content.Context;
 import com.example.proxyclient.Constants;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileDescriptor;
+import java.io.IOException;
+import android.content.pm.PackageManager;
+import java.net.InetSocketAddress;
+import java.net.Socket;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.Arrays;
+import java.net.Proxy;
+
 public class ProxyVpnService extends VpnService {
     private static final String TAG = "ProxyVpnService";
-    private static final String CHANNEL_ID = "proxy_vpn_channel";
+    private static final String ACTION_DISCONNECT = "com.example.proxyclient.DISCONNECT";
+    private static final String CHANNEL_ID = "VPN_CHANNEL";
     private static final int NOTIFICATION_ID = 1;
     
-    private ParcelFileDescriptor vpnInterface;
-    private String serverAddress;
-    private int serverPort;
-    private String password;
-    private boolean isRunning;
-    private Intent intent;
-    
+    private volatile boolean running = false;
+    private ParcelFileDescriptor vpnInterface = null;
+    private Thread vpnThread = null;
+
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.d(TAG, "VPN Service onCreate");
-        createNotificationChannel();
-        broadcastVpnState(true);
-    }
-    
-    @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
-        try {
-            Log.d(TAG, "VPN Service onStartCommand");
-            this.intent = intent;
-            
-            if (intent == null) {
-                Log.e(TAG, "Intent is null");
-                return START_NOT_STICKY;
-            }
-
-            serverAddress = intent.getStringExtra("server");
-            serverPort = intent.getIntExtra("port", 443);
-            password = intent.getStringExtra("password");
-            
-            Log.d(TAG, "Server: " + serverAddress + ":" + serverPort);
-            
-            // Create notification
-            Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
-                .setContentTitle("代理 VPN 服务")
-                .setContentText("VPN 服务正在运行")
-                .setSmallIcon(R.drawable.ic_launcher_foreground)
-                .build();
-            
-            startForeground(NOTIFICATION_ID, notification);
-            
-            if (establishVpn()) {
-                broadcastVpnState(true);
-                return START_STICKY;
-            } else {
-                broadcastVpnState(false);
-                stopSelf();
-                return START_NOT_STICKY;
-            }
-            
-        } catch (Exception e) {
-            Log.e(TAG, "VPN Service start failed", e);
-            broadcastVpnState(false);
-            cleanup();
-            stopSelf();
-            return START_NOT_STICKY;
-        }
-    }
-    
-    private boolean establishVpn() {
-        try {
-            Log.d(TAG, "Building VPN interface");
-            
-            Builder builder = new Builder()
-                .setSession("ProxyClient")
-                .addAddress("10.0.0.2", 24)
-                .addDnsServer("8.8.8.8")
-                .addDnsServer("8.8.4.4")  // 添加备用 DNS
-                .addRoute("0.0.0.0", 0);  // 所有流量经过 VPN
-                
-            // 允许绕过的应用
-            if (intent != null && intent.getStringArrayExtra("bypass_packages") != null) {
-                for (String packageName : intent.getStringArrayExtra("bypass_packages")) {
-                    builder.addDisallowedApplication(packageName);
-                }
-            }
-
-            // 设置 MTU
-            builder.setMtu(1500);
-            
-            // 建立 VPN 接口
-            vpnInterface = builder.establish();
-            if (vpnInterface == null) {
-                Log.e(TAG, "VPN interface is null");
-                updateNotification("VPN 接口创建失败");
-                return false;
-            }
-
-            Log.d(TAG, "VPN interface established successfully");
-            updateNotification("VPN 已连接");
-            
-            // 启动代理
-            startTrojanProxy();
-            return true;
-            
-        } catch (Exception e) {
-            Log.e(TAG, "establishVpn failed", e);
-            updateNotification("VPN 连接失败: " + e.getMessage());
-            return false;
-        }
-    }
-    
-    private void startTrojanProxy() {
-        try {
-            if (vpnInterface == null) {
-                throw new IllegalStateException("VPN interface not established");
-            }
-
-            Log.d(TAG, "Starting Trojan proxy");
-            updateNotification("正在启动代理...");
-
-            new Thread(() -> {
-                try {
-                    int fd = vpnInterface.getFd();
-                    Log.d(TAG, "VPN interface fd: " + fd);
-                    
-                    // 创建 Trojan 配置
-                    String sni = intent.getStringExtra("sni");
-                    if (sni == null || sni.isEmpty()) {
-                        sni = serverAddress; // 如果没有设置 SNI，使用服务器地址
-                    }
-                    
-                    TrojanConfig config = new TrojanConfig(
-                        serverAddress,
-                        serverPort,
-                        password,
-                        "VPN Connection",
-                        "Default"
-                    );
-                    
-                    // 设置其他选项
-                    config.setSni(sni);
-                    config.setAllowInsecure(intent.getBooleanExtra("allowInsecure", false));
-                    
-                    // 添加日志
-                    Log.d(TAG, "Trojan config: " + 
-                          "\nServer: " + config.getServerAddress() + ":" + config.getServerPort() +
-                          "\nSNI: " + config.getSni() +
-                          "\nAllow Insecure: " + config.isAllowInsecure());
-                    
-                    // 启动 Trojan
-                    TrojanService.getInstance().connect(config);
-                    
-                    updateNotification("代理已启动");
-                    Log.d(TAG, "Trojan proxy started successfully");
-                    
-                } catch (Exception e) {
-                    Log.e(TAG, "Proxy thread failed", e);
-                    updateNotification("代理启动失败: " + e.getMessage());
-                    cleanup();
-                }
-            }).start();
-            
-        } catch (Exception e) {
-            Log.e(TAG, "Failed to start proxy", e);
-            updateNotification("代理启动失败: " + e.getMessage());
-            cleanup();
-        }
-    }
-    
-    private String getStringExtra(Intent intent, String key) {
-        return intent != null ? intent.getStringExtra(key) : null;
-    }
-    
-    private boolean getBooleanExtra(Intent intent, String key) {
-        return intent != null && intent.getBooleanExtra(key, false);
-    }
-    
-    private void cleanup() {
-        Log.d(TAG, "VPN cleanup started");
         
-        if (vpnInterface != null) {
-            try {
-                vpnInterface.close();
-                vpnInterface = null;
-            } catch (Exception e) {
-                Log.e(TAG, "Error closing VPN interface", e);
-            }
-        }
-        
-        try {
-            TrojanService.getInstance().disconnect();
-        } catch (Exception e) {
-            Log.e(TAG, "Error stopping Trojan service", e);
-        }
-        
-        Log.d(TAG, "VPN cleanup completed");
-    }
-    
-    private void updateNotification(String status) {
-        startForeground(NOTIFICATION_ID, createNotification(status));
-    }
-    
-    private Notification createNotification(String status) {
-        Intent notificationIntent = new Intent(this, MainActivity.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(
-            this, 0, notificationIntent, 
-            PendingIntent.FLAG_IMMUTABLE);
-            
-        return new NotificationCompat.Builder(this, CHANNEL_ID)
-            .setContentTitle("ProxyClient VPN")
-            .setContentText(status)
-            .setSmallIcon(R.drawable.ic_vpn)
-            .setContentIntent(pendingIntent)
-            .build();
-    }
-    
-    private void createNotificationChannel() {
+        // 创建通知渠道
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel(
-                CHANNEL_ID,
-                "代理 VPN 服务",
-                NotificationManager.IMPORTANCE_LOW);
+                "vpn_service",
+                "VPN Service",
+                NotificationManager.IMPORTANCE_DEFAULT);
+            
+            channel.setDescription("VPN Service Running");
+            channel.enableLights(false);
+            channel.enableVibration(false);
+            channel.setSound(null, null);
+            
             NotificationManager manager = getSystemService(NotificationManager.class);
             manager.createNotificationChannel(channel);
         }
     }
-    
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        try {
+            if (intent != null && ACTION_DISCONNECT.equals(intent.getAction())) {
+                stopVpn();
+                stopSelf();
+                return START_NOT_STICKY;
+            }
+
+            if (running) {
+                Log.i(TAG, "VPN Service already running");
+                return START_STICKY;
+            }
+
+            // 创建通知
+            Notification.Builder builder;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                builder = new Notification.Builder(this, "vpn_service");
+            } else {
+                builder = new Notification.Builder(this);
+            }
+            
+            Notification notification = builder
+                .setContentTitle("VPN Service")
+                .setContentText("VPN Service is running")
+                .setSmallIcon(R.drawable.ic_notification)  // 确保这个图标存在
+                .setOngoing(true)
+                .build();
+
+            // 启动前台服务
+            startForeground(1, notification);
+            
+            running = true;
+            vpnThread = new Thread(this::runVpn, "VpnThread");
+            vpnThread.start();
+            
+            Log.i(TAG, "VPN Service started");
+            return START_STICKY;
+            
+        } catch (Exception e) {
+            Log.e(TAG, "Error in onStartCommand", e);
+            stopSelf();
+            return START_NOT_STICKY;
+        }
+    }
+
+    private void runVpn() {
+        try {
+            // 设置 VPN 参数
+            Builder builder = new Builder()
+                .addAddress("10.0.0.1", 24)
+                .addRoute("0.0.0.0", 0)
+                .addDnsServer("8.8.8.8")
+                .setSession("MyVpnService");
+            
+            // 建立 VPN 接口
+            ParcelFileDescriptor vpnInterface = builder.establish();
+            Log.i(TAG, "VPN interface established successfully");
+            
+            FileInputStream in = new FileInputStream(vpnInterface.getFileDescriptor());
+            FileOutputStream out = new FileOutputStream(vpnInterface.getFileDescriptor());
+            
+            // 创建一个新的 Socket 而不是使用代理
+            Socket tunnel = new Socket();
+            tunnel.connect(new InetSocketAddress("8.8.8.8", 53));
+            
+            // 在这里处理数据转发
+            byte[] packet = new byte[32767];
+            int len;
+            
+            while ((len = in.read(packet)) != -1) {
+                // 直接转发数据包而不使用代理
+                tunnel.getOutputStream().write(packet, 0, len);
+                tunnel.getOutputStream().flush();
+                
+                // 读取响应
+                len = tunnel.getInputStream().read(packet);
+                if (len > 0) {
+                    out.write(packet, 0, len);
+                    out.flush();
+                }
+            }
+
+        } catch (IOException e) {
+            Log.e(TAG, "VPN error: " + e.getMessage());
+        }
+    }
+
+    private String getIPString(byte[] ip) {
+        return String.format("%d.%d.%d.%d",
+            ip[0] & 0xFF, ip[1] & 0xFF, ip[2] & 0xFF, ip[3] & 0xFF);
+    }
+
+    private ParcelFileDescriptor establish() {
+        try {
+            Log.i(TAG, "Setting up VPN configuration");
+            
+            Builder builder = new Builder()
+                .setSession("ProxyVPN")
+                .addAddress("10.0.0.2", 24)
+                .addDnsServer("8.8.8.8")
+                .addDnsServer("8.8.4.4")  // 添加 Google 备用 DNS
+                .addRoute("0.0.0.0", 0)   // 所有流量通过 VPN
+                .setMtu(1500)
+                .setBlocking(true);
+
+            // 添加允许的应用
+            try {
+                builder.addAllowedApplication("com.android.chrome");
+                builder.addAllowedApplication("com.google.android.gms");
+                builder.addAllowedApplication("com.google.android.gsf");
+                builder.addAllowedApplication("com.google.android.apps.maps");
+                builder.addAllowedApplication("com.google.android.youtube");
+                builder.addAllowedApplication("com.android.vending");  // Play Store
+            } catch (PackageManager.NameNotFoundException e) {
+                Log.w(TAG, "Some Google apps not found", e);
+            }
+
+            ParcelFileDescriptor vpnInterface = builder.establish();
+            if (vpnInterface == null) {
+                Log.e(TAG, "Failed to establish VPN interface");
+                return null;
+            }
+
+            Log.i(TAG, "VPN interface established successfully");
+            return vpnInterface;
+
+        } catch (Exception e) {
+            Log.e(TAG, "Error establishing VPN", e);
+            return null;
+        }
+    }
+
+    private void createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel(
+                CHANNEL_ID,
+                "VPN Service",
+                NotificationManager.IMPORTANCE_DEFAULT);
+            
+            NotificationManager manager = getSystemService(NotificationManager.class);
+            if (manager != null) {
+                manager.createNotificationChannel(channel);
+            }
+        }
+    }
+
+    private Notification createNotification(String status) {
+        Intent intent = new Intent(this, MainActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(
+            this, 0, intent, PendingIntent.FLAG_IMMUTABLE);
+
+        return new NotificationCompat.Builder(this, CHANNEL_ID)
+            .setContentTitle("VPN Service")
+            .setContentText(status)
+            .setSmallIcon(R.drawable.ic_notification)
+            .setContentIntent(pendingIntent)
+            .build();
+    }
+
+    private void updateNotification(String status) {
+        NotificationManager manager = getSystemService(NotificationManager.class);
+        if (manager != null) {
+            manager.notify(NOTIFICATION_ID, createNotification(status));
+        }
+    }
+
+    private void stopVpn() {
+        Log.i(TAG, "Stopping VPN");
+        running = false;
+        
+        if (vpnInterface != null) {
+            try {
+                vpnInterface.close();
+            } catch (IOException e) {
+                Log.e(TAG, "Error closing VPN interface", e);
+            }
+            vpnInterface = null;
+        }
+
+        updateNotification("VPN Disconnected");
+    }
+
     @Override
     public void onDestroy() {
-        super.onDestroy();
-        Log.d(TAG, "VPN Service onDestroy");
-        broadcastVpnState(false);
-        cleanup();
+        Log.i(TAG, "VPN Service being destroyed");
+        stopVpn();
         stopForeground(true);
-    }
-    
-    @Override
-    public void onRevoke() {
-        Log.d(TAG, "VPN permission revoked");
-        // VPN 权限被撤销时也要清理
-        cleanup();
-        stopSelf();
-        super.onRevoke();
-    }
-    
-    private void broadcastVpnState(boolean isConnected) {
-        try {
-            Log.d(TAG, "Broadcasting VPN state: " + isConnected);
-            Intent intent = new Intent(Constants.ACTION_VPN_STATE_CHANGED);
-            intent.setPackage(getPackageName());
-            intent.putExtra(Constants.EXTRA_VPN_STATE, isConnected);
-            sendBroadcast(intent);
-        } catch (Exception e) {
-            Log.e(TAG, "Error broadcasting state", e);
-        }
+        super.onDestroy();
     }
 } 

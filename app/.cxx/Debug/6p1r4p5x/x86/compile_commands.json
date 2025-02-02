@@ -1,0 +1,7 @@
+[
+{
+  "directory": "D:/files/projects/A_Proxy_From_Url_J/app/.cxx/Debug/6p1r4p5x/x86",
+  "command": "C:\\Users\\windy\\AppData\\Local\\Android\\Sdk\\ndk\\25.1.8937393\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=i686-none-linux-android21 --sysroot=C:/Users/windy/AppData/Local/Android/Sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot -Dtrojan_EXPORTS -ID:/files/projects/A_Proxy_From_Url_J/app/src/main/cpp/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -std=c++17 -fno-limit-debug-info  -fPIC -Wall -Werror -std=c++17 -o CMakeFiles\\trojan.dir\\trojan_jni.cpp.o -c D:\\files\\projects\\A_Proxy_From_Url_J\\app\\src\\main\\cpp\\trojan_jni.cpp",
+  "file": "D:\\files\\projects\\A_Proxy_From_Url_J\\app\\src\\main\\cpp\\trojan_jni.cpp"
+}
+]

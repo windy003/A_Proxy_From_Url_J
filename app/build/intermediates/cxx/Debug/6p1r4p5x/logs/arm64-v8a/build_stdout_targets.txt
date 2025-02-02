@@ -1,0 +1,1 @@
+ninja: Entering directory `D:\files\projects\A_Proxy_From_Url_J\app\.cxx\Debug\6p1r4p5x\arm64-v8a'

@@ -1,24 +1,41 @@
-cmake_minimum_required(VERSION 3.10.2)
+cmake_minimum_required(VERSION 3.22.1)
 
 project(trojan)
 
-# 设置 OpenSSL 路径
-set(OPENSSL_ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/deps/openssl)
-set(OPENSSL_INCLUDE_DIR ${OPENSSL_ROOT_DIR}/include)
+# 设置预编译库路径
+set(PREBUILT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../jniLibs/${ANDROID_ABI})
+set(OPENSSL_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
-# 查找 Android 日志库
-find_library(log-lib log)
+# 添加预编译的 OpenSSL 库
+add_library(ssl SHARED IMPORTED)
+set_target_properties(ssl PROPERTIES IMPORTED_LOCATION ${PREBUILT_DIR}/libssl_1_1.so)
 
-# 添加 JNI 库
-add_library(trojan-jni SHARED
+add_library(crypto SHARED IMPORTED)
+set_target_properties(crypto PROPERTIES IMPORTED_LOCATION ${PREBUILT_DIR}/libcrypto_1_1.so)
+
+# 添加源文件
+add_library(${PROJECT_NAME} SHARED
     trojan_jni.cpp
 )
 
-target_include_directories(trojan-jni PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}
+# 添加头文件路径
+target_include_directories(${PROJECT_NAME} PRIVATE
     ${OPENSSL_INCLUDE_DIR}
 )
 
-target_link_libraries(trojan-jni
+# 查找系统库
+find_library(log-lib log)
+
+# 链接库
+target_link_libraries(${PROJECT_NAME} 
+    ssl
+    crypto
     ${log-lib}
+)
+
+# 设置编译选项
+target_compile_options(${PROJECT_NAME} PRIVATE
+    -Wall
+    -Werror
+    -std=c++17
 ) 

@@ -233,8 +233,8 @@ CMAKE_SYSTEM_NAME:UNINITIALIZED=Android
 //No help, variable specified on the command line.
 CMAKE_SYSTEM_VERSION:UNINITIALIZED=21
 
-//The CMake toolchain file
-CMAKE_TOOLCHAIN_FILE:FILEPATH=C:/Users/windy/AppData/Local/Android/Sdk/ndk/25.1.8937393/build/cmake/android.toolchain.cmake
+//No help, variable specified on the command line.
+CMAKE_TOOLCHAIN_FILE:UNINITIALIZED=C:\Users\windy\AppData\Local\Android\Sdk\ndk\25.1.8937393\build\cmake\android.toolchain.cmake
 
 //If this value is on, makefiles will be generated without the
 // .SILENT directive, and all commands will be echoed to the console
@@ -244,9 +244,6 @@ CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
 //Path to a library.
 log-lib:FILEPATH=C:/Users/windy/AppData/Local/Android/Sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/aarch64-linux-android/21/liblog.so
-
-//Dependencies for the target
-trojan-jni_LIB_DEPENDS:STATIC=general;C:/Users/windy/AppData/Local/Android/Sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/aarch64-linux-android/21/liblog.so;
 
 //Value Computed by CMake
 trojan_BINARY_DIR:STATIC=D:/files/projects/A_Proxy_From_Url_J/app/.cxx/Debug/6p1r4p5x/arm64-v8a

@@ -1,0 +1,3 @@
+D:/files/projects/A_Proxy_From_Url_J/app/.cxx/Debug/6p1r4p5x/x86/CMakeFiles/trojan.dir
+D:/files/projects/A_Proxy_From_Url_J/app/.cxx/Debug/6p1r4p5x/x86/CMakeFiles/edit_cache.dir
+D:/files/projects/A_Proxy_From_Url_J/app/.cxx/Debug/6p1r4p5x/x86/CMakeFiles/rebuild_cache.dir

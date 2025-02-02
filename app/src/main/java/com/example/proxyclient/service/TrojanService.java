@@ -32,12 +32,27 @@ public class TrojanService {
         try {
             // 使用现有 TrojanConfig 的方法生成配置
             String configJson = String.format(
-                "{\"server\":\"%s\",\"server_port\":%d,\"password\":\"%s\",\"ssl\":{\"sni\":\"%s\",\"verify\":%b}}",
+                "{\"run_type\":\"client\"," +
+                "\"local_addr\":\"127.0.0.1\"," +
+                "\"local_port\":1080," +
+                "\"remote_addr\":\"%s\"," +
+                "\"remote_port\":%d," +
+                "\"password\":[\"%s\"]," +
+                "\"log_level\":0," +
+                "\"ssl\":{" +
+                "\"verify\":false," +
+                "\"verify_hostname\":true," +
+                "\"cert\":\"\",\"cipher\":\"\"," +
+                "\"cipher_tls13\":\"\"," +
+                "\"sni\":\"%s\"," +
+                "\"alpn\":[\"h2\",\"http/1.1\"]," +
+                "\"reuse_session\":true," +
+                "\"session_ticket\":true," +
+                "\"curves\":\"\"}}",
                 config.getServerAddress(),
                 config.getServerPort(),
                 config.getPassword(),
-                config.getSni(),
-                !config.isAllowInsecure()
+                config.getSni()
             );
             
             Log.d(TAG, "Connecting with config: " + configJson);
