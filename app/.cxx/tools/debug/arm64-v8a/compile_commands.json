@@ -1,7 +1,12 @@
 [
 {
   "directory": "D:/files/projects/A_Proxy_From_Url_J/app/.cxx/Debug/6p1r4p5x/arm64-v8a",
-  "command": "C:\\Users\\windy\\AppData\\Local\\Android\\Sdk\\ndk\\25.1.8937393\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=aarch64-none-linux-android21 --sysroot=C:/Users/windy/AppData/Local/Android/Sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot -Dtrojan_EXPORTS -ID:/files/projects/A_Proxy_From_Url_J/app/src/main/cpp/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -std=c++17 -fno-limit-debug-info  -fPIC -Wall -Werror -std=c++17 -o CMakeFiles\\trojan.dir\\trojan_jni.cpp.o -c D:\\files\\projects\\A_Proxy_From_Url_J\\app\\src\\main\\cpp\\trojan_jni.cpp",
-  "file": "D:\\files\\projects\\A_Proxy_From_Url_J\\app\\src\\main\\cpp\\trojan_jni.cpp"
+  "command": "C:\\Users\\windy\\AppData\\Local\\Android\\Sdk\\ndk\\25.1.8937393\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=aarch64-none-linux-android21 --sysroot=C:/Users/windy/AppData/Local/Android/Sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot -Dproxyclient_EXPORTS -ID:/files/projects/A_Proxy_From_Url_J/app/src/main/cpp/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -std=c++17 -fno-limit-debug-info  -fPIC -Wall -Werror -fexceptions -o CMakeFiles\\proxyclient.dir\\xray_jni.cpp.o -c D:\\files\\projects\\A_Proxy_From_Url_J\\app\\src\\main\\cpp\\xray_jni.cpp",
+  "file": "D:\\files\\projects\\A_Proxy_From_Url_J\\app\\src\\main\\cpp\\xray_jni.cpp"
+},
+{
+  "directory": "D:/files/projects/A_Proxy_From_Url_J/app/.cxx/Debug/6p1r4p5x/arm64-v8a",
+  "command": "C:\\Users\\windy\\AppData\\Local\\Android\\Sdk\\ndk\\25.1.8937393\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=aarch64-none-linux-android21 --sysroot=C:/Users/windy/AppData/Local/Android/Sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot -Dproxyclient_EXPORTS -ID:/files/projects/A_Proxy_From_Url_J/app/src/main/cpp/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -std=c++17 -fno-limit-debug-info  -fPIC -Wall -Werror -fexceptions -o CMakeFiles\\proxyclient.dir\\utils.cpp.o -c D:\\files\\projects\\A_Proxy_From_Url_J\\app\\src\\main\\cpp\\utils.cpp",
+  "file": "D:\\files\\projects\\A_Proxy_From_Url_J\\app\\src\\main\\cpp\\utils.cpp"
 }
 ]

@@ -11,7 +11,7 @@
 # =============================================================================
 
 # =============================================================================
-# Project: trojan
+# Project: proxyclient
 # Configurations: Debug
 # =============================================================================
 
@@ -41,41 +41,49 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = D$:/files/projects/A_Proxy_From_Url_J/app/.cxx/Debug/6p1r4p5x/arm64-v8a/
 # =============================================================================
-# Object build statements for SHARED_LIBRARY target trojan
+# Object build statements for SHARED_LIBRARY target proxyclient
 
 
 #############################################
-# Order-only phony target for trojan
+# Order-only phony target for proxyclient
 
-build cmake_object_order_depends_target_trojan: phony || CMakeFiles/trojan.dir
+build cmake_object_order_depends_target_proxyclient: phony || CMakeFiles/proxyclient.dir
 
-build CMakeFiles/trojan.dir/trojan_jni.cpp.o: CXX_COMPILER__trojan_Debug D$:/files/projects/A_Proxy_From_Url_J/app/src/main/cpp/trojan_jni.cpp || cmake_object_order_depends_target_trojan
-  DEFINES = -Dtrojan_EXPORTS
-  DEP_FILE = CMakeFiles\trojan.dir\trojan_jni.cpp.o.d
-  FLAGS = -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -std=c++17 -fno-limit-debug-info  -fPIC -Wall -Werror -std=c++17
+build CMakeFiles/proxyclient.dir/xray_jni.cpp.o: CXX_COMPILER__proxyclient_Debug D$:/files/projects/A_Proxy_From_Url_J/app/src/main/cpp/xray_jni.cpp || cmake_object_order_depends_target_proxyclient
+  DEFINES = -Dproxyclient_EXPORTS
+  DEP_FILE = CMakeFiles\proxyclient.dir\xray_jni.cpp.o.d
+  FLAGS = -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -std=c++17 -fno-limit-debug-info  -fPIC -Wall -Werror -fexceptions
   INCLUDES = -ID:/files/projects/A_Proxy_From_Url_J/app/src/main/cpp/include
-  OBJECT_DIR = CMakeFiles\trojan.dir
-  OBJECT_FILE_DIR = CMakeFiles\trojan.dir
+  OBJECT_DIR = CMakeFiles\proxyclient.dir
+  OBJECT_FILE_DIR = CMakeFiles\proxyclient.dir
+
+build CMakeFiles/proxyclient.dir/utils.cpp.o: CXX_COMPILER__proxyclient_Debug D$:/files/projects/A_Proxy_From_Url_J/app/src/main/cpp/utils.cpp || cmake_object_order_depends_target_proxyclient
+  DEFINES = -Dproxyclient_EXPORTS
+  DEP_FILE = CMakeFiles\proxyclient.dir\utils.cpp.o.d
+  FLAGS = -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -std=c++17 -fno-limit-debug-info  -fPIC -Wall -Werror -fexceptions
+  INCLUDES = -ID:/files/projects/A_Proxy_From_Url_J/app/src/main/cpp/include
+  OBJECT_DIR = CMakeFiles\proxyclient.dir
+  OBJECT_FILE_DIR = CMakeFiles\proxyclient.dir
 
 
 # =============================================================================
-# Link build statements for SHARED_LIBRARY target trojan
+# Link build statements for SHARED_LIBRARY target proxyclient
 
 
 #############################################
-# Link the shared library D:\files\projects\A_Proxy_From_Url_J\app\build\intermediates\cxx\Debug\6p1r4p5x\obj\arm64-v8a\libtrojan.so
+# Link the shared library D:\files\projects\A_Proxy_From_Url_J\app\build\intermediates\cxx\Debug\6p1r4p5x\obj\arm64-v8a\libproxyclient.so
 
-build D$:/files/projects/A_Proxy_From_Url_J/app/build/intermediates/cxx/Debug/6p1r4p5x/obj/arm64-v8a/libtrojan.so: CXX_SHARED_LIBRARY_LINKER__trojan_Debug CMakeFiles/trojan.dir/trojan_jni.cpp.o | D$:/files/projects/A_Proxy_From_Url_J/app/src/main/cpp/../jniLibs/arm64-v8a/libssl_1_1.so D$:/files/projects/A_Proxy_From_Url_J/app/src/main/cpp/../jniLibs/arm64-v8a/libcrypto_1_1.so C$:/Users/windy/AppData/Local/Android/Sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/aarch64-linux-android/21/liblog.so
+build D$:/files/projects/A_Proxy_From_Url_J/app/build/intermediates/cxx/Debug/6p1r4p5x/obj/arm64-v8a/libproxyclient.so: CXX_SHARED_LIBRARY_LINKER__proxyclient_Debug CMakeFiles/proxyclient.dir/xray_jni.cpp.o CMakeFiles/proxyclient.dir/utils.cpp.o | D$:/files/projects/A_Proxy_From_Url_J/app/src/main/cpp/../jniLibs/arm64-v8a/libxray.so C$:/Users/windy/AppData/Local/Android/Sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/aarch64-linux-android/21/liblog.so
   LANGUAGE_COMPILE_FLAGS = -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -std=c++17 -fno-limit-debug-info
   LINK_FLAGS = -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--fatal-warnings -Wl,--gc-sections -Wl,--no-undefined -Qunused-arguments
-  LINK_LIBRARIES = D:/files/projects/A_Proxy_From_Url_J/app/src/main/cpp/../jniLibs/arm64-v8a/libssl_1_1.so  D:/files/projects/A_Proxy_From_Url_J/app/src/main/cpp/../jniLibs/arm64-v8a/libcrypto_1_1.so  C:/Users/windy/AppData/Local/Android/Sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/aarch64-linux-android/21/liblog.so  -latomic -lm
-  OBJECT_DIR = CMakeFiles\trojan.dir
+  LINK_LIBRARIES = D:/files/projects/A_Proxy_From_Url_J/app/src/main/cpp/../jniLibs/arm64-v8a/libxray.so  C:/Users/windy/AppData/Local/Android/Sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/aarch64-linux-android/21/liblog.so  -latomic -lm
+  OBJECT_DIR = CMakeFiles\proxyclient.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  SONAME = libtrojan.so
+  SONAME = libproxyclient.so
   SONAME_FLAG = -Wl,-soname,
-  TARGET_FILE = D:\files\projects\A_Proxy_From_Url_J\app\build\intermediates\cxx\Debug\6p1r4p5x\obj\arm64-v8a\libtrojan.so
-  TARGET_PDB = trojan.so.dbg
+  TARGET_FILE = D:\files\projects\A_Proxy_From_Url_J\app\build\intermediates\cxx\Debug\6p1r4p5x\obj\arm64-v8a\libproxyclient.so
+  TARGET_PDB = proxyclient.so.dbg
 
 
 #############################################
@@ -103,9 +111,9 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
-build libtrojan.so: phony D$:/files/projects/A_Proxy_From_Url_J/app/build/intermediates/cxx/Debug/6p1r4p5x/obj/arm64-v8a/libtrojan.so
+build libproxyclient.so: phony D$:/files/projects/A_Proxy_From_Url_J/app/build/intermediates/cxx/Debug/6p1r4p5x/obj/arm64-v8a/libproxyclient.so
 
-build trojan: phony D$:/files/projects/A_Proxy_From_Url_J/app/build/intermediates/cxx/Debug/6p1r4p5x/obj/arm64-v8a/libtrojan.so
+build proxyclient: phony D$:/files/projects/A_Proxy_From_Url_J/app/build/intermediates/cxx/Debug/6p1r4p5x/obj/arm64-v8a/libproxyclient.so
 
 # =============================================================================
 # Folder targets.
@@ -115,7 +123,7 @@ build trojan: phony D$:/files/projects/A_Proxy_From_Url_J/app/build/intermediate
 #############################################
 # Folder: D:/files/projects/A_Proxy_From_Url_J/app/.cxx/Debug/6p1r4p5x/arm64-v8a
 
-build all: phony D$:/files/projects/A_Proxy_From_Url_J/app/build/intermediates/cxx/Debug/6p1r4p5x/obj/arm64-v8a/libtrojan.so
+build all: phony D$:/files/projects/A_Proxy_From_Url_J/app/build/intermediates/cxx/Debug/6p1r4p5x/obj/arm64-v8a/libproxyclient.so
 
 # =============================================================================
 # Built-in targets

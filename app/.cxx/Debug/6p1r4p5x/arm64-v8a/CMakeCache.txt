@@ -121,7 +121,7 @@ CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 CMAKE_EXPORT_COMPILE_COMMANDS:UNINITIALIZED=ON
 
 //Install path prefix, prepended onto install directories.
-CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/trojan
+CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/proxyclient
 
 //No help, variable specified on the command line.
 CMAKE_LIBRARY_OUTPUT_DIRECTORY:UNINITIALIZED=D:\files\projects\A_Proxy_From_Url_J\app\build\intermediates\cxx\Debug\6p1r4p5x\obj\arm64-v8a
@@ -167,7 +167,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=trojan
+CMAKE_PROJECT_NAME:STATIC=proxyclient
 
 //Ranlib
 CMAKE_RANLIB:FILEPATH=C:/Users/windy/AppData/Local/Android/Sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/bin/llvm-ranlib.exe
@@ -246,13 +246,13 @@ CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 log-lib:FILEPATH=C:/Users/windy/AppData/Local/Android/Sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/aarch64-linux-android/21/liblog.so
 
 //Value Computed by CMake
-trojan_BINARY_DIR:STATIC=D:/files/projects/A_Proxy_From_Url_J/app/.cxx/Debug/6p1r4p5x/arm64-v8a
+proxyclient_BINARY_DIR:STATIC=D:/files/projects/A_Proxy_From_Url_J/app/.cxx/Debug/6p1r4p5x/arm64-v8a
 
 //Value Computed by CMake
-trojan_IS_TOP_LEVEL:STATIC=ON
+proxyclient_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
-trojan_SOURCE_DIR:STATIC=D:/files/projects/A_Proxy_From_Url_J/app/src/main/cpp
+proxyclient_SOURCE_DIR:STATIC=D:/files/projects/A_Proxy_From_Url_J/app/src/main/cpp
 
 
 ########################

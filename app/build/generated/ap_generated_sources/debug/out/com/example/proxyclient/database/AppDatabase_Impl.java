@@ -26,22 +26,20 @@ import javax.annotation.processing.Generated;
 @Generated("androidx.room.RoomProcessor")
 @SuppressWarnings({"unchecked", "deprecation"})
 public final class AppDatabase_Impl extends AppDatabase {
-  private volatile TrojanConfigDao _trojanConfigDao;
-
   @Override
   @NonNull
   protected SupportSQLiteOpenHelper createOpenHelper(@NonNull final DatabaseConfiguration config) {
     final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(config, new RoomOpenHelper.Delegate(1) {
       @Override
       public void createAllTables(@NonNull final SupportSQLiteDatabase db) {
-        db.execSQL("CREATE TABLE IF NOT EXISTS `trojan_config` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT, `serverAddress` TEXT, `serverPort` INTEGER NOT NULL, `password` TEXT, `remark` TEXT, `region` TEXT, `peer` TEXT, `sni` TEXT, `allowInsecure` INTEGER NOT NULL)");
+        db.execSQL("CREATE TABLE IF NOT EXISTS `xray_configs` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `address` TEXT, `port` INTEGER NOT NULL, `protocol` TEXT, `uuid` TEXT)");
         db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'ddaba2793ea399f0d1afebf8912a03bb')");
+        db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '29d2aa6778c609809077937b2bcd2edd')");
       }
 
       @Override
       public void dropAllTables(@NonNull final SupportSQLiteDatabase db) {
-        db.execSQL("DROP TABLE IF EXISTS `trojan_config`");
+        db.execSQL("DROP TABLE IF EXISTS `xray_configs`");
         final List<? extends RoomDatabase.Callback> _callbacks = mCallbacks;
         if (_callbacks != null) {
           for (RoomDatabase.Callback _callback : _callbacks) {
@@ -85,29 +83,24 @@ public final class AppDatabase_Impl extends AppDatabase {
       @NonNull
       public RoomOpenHelper.ValidationResult onValidateSchema(
           @NonNull final SupportSQLiteDatabase db) {
-        final HashMap<String, TableInfo.Column> _columnsTrojanConfig = new HashMap<String, TableInfo.Column>(10);
-        _columnsTrojanConfig.put("id", new TableInfo.Column("id", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsTrojanConfig.put("name", new TableInfo.Column("name", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsTrojanConfig.put("serverAddress", new TableInfo.Column("serverAddress", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsTrojanConfig.put("serverPort", new TableInfo.Column("serverPort", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsTrojanConfig.put("password", new TableInfo.Column("password", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsTrojanConfig.put("remark", new TableInfo.Column("remark", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsTrojanConfig.put("region", new TableInfo.Column("region", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsTrojanConfig.put("peer", new TableInfo.Column("peer", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsTrojanConfig.put("sni", new TableInfo.Column("sni", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        _columnsTrojanConfig.put("allowInsecure", new TableInfo.Column("allowInsecure", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
-        final HashSet<TableInfo.ForeignKey> _foreignKeysTrojanConfig = new HashSet<TableInfo.ForeignKey>(0);
-        final HashSet<TableInfo.Index> _indicesTrojanConfig = new HashSet<TableInfo.Index>(0);
-        final TableInfo _infoTrojanConfig = new TableInfo("trojan_config", _columnsTrojanConfig, _foreignKeysTrojanConfig, _indicesTrojanConfig);
-        final TableInfo _existingTrojanConfig = TableInfo.read(db, "trojan_config");
-        if (!_infoTrojanConfig.equals(_existingTrojanConfig)) {
-          return new RoomOpenHelper.ValidationResult(false, "trojan_config(com.example.proxyclient.model.TrojanConfig).\n"
-                  + " Expected:\n" + _infoTrojanConfig + "\n"
-                  + " Found:\n" + _existingTrojanConfig);
+        final HashMap<String, TableInfo.Column> _columnsXrayConfigs = new HashMap<String, TableInfo.Column>(5);
+        _columnsXrayConfigs.put("id", new TableInfo.Column("id", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsXrayConfigs.put("address", new TableInfo.Column("address", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsXrayConfigs.put("port", new TableInfo.Column("port", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsXrayConfigs.put("protocol", new TableInfo.Column("protocol", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsXrayConfigs.put("uuid", new TableInfo.Column("uuid", "TEXT", false, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        final HashSet<TableInfo.ForeignKey> _foreignKeysXrayConfigs = new HashSet<TableInfo.ForeignKey>(0);
+        final HashSet<TableInfo.Index> _indicesXrayConfigs = new HashSet<TableInfo.Index>(0);
+        final TableInfo _infoXrayConfigs = new TableInfo("xray_configs", _columnsXrayConfigs, _foreignKeysXrayConfigs, _indicesXrayConfigs);
+        final TableInfo _existingXrayConfigs = TableInfo.read(db, "xray_configs");
+        if (!_infoXrayConfigs.equals(_existingXrayConfigs)) {
+          return new RoomOpenHelper.ValidationResult(false, "xray_configs(com.example.proxyclient.model.XrayConfig).\n"
+                  + " Expected:\n" + _infoXrayConfigs + "\n"
+                  + " Found:\n" + _existingXrayConfigs);
         }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "ddaba2793ea399f0d1afebf8912a03bb", "9178faaaa62fda330354472f3cb67c08");
+    }, "29d2aa6778c609809077937b2bcd2edd", "823a10f5b8a8572054f2a48dc8b85a90");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(config.context).name(config.name).callback(_openCallback).build();
     final SupportSQLiteOpenHelper _helper = config.sqliteOpenHelperFactory.create(_sqliteConfig);
     return _helper;
@@ -118,7 +111,7 @@ public final class AppDatabase_Impl extends AppDatabase {
   protected InvalidationTracker createInvalidationTracker() {
     final HashMap<String, String> _shadowTablesMap = new HashMap<String, String>(0);
     final HashMap<String, Set<String>> _viewTables = new HashMap<String, Set<String>>(0);
-    return new InvalidationTracker(this, _shadowTablesMap, _viewTables, "trojan_config");
+    return new InvalidationTracker(this, _shadowTablesMap, _viewTables, "xray_configs");
   }
 
   @Override
@@ -127,7 +120,7 @@ public final class AppDatabase_Impl extends AppDatabase {
     final SupportSQLiteDatabase _db = super.getOpenHelper().getWritableDatabase();
     try {
       super.beginTransaction();
-      _db.execSQL("DELETE FROM `trojan_config`");
+      _db.execSQL("DELETE FROM `xray_configs`");
       super.setTransactionSuccessful();
     } finally {
       super.endTransaction();
@@ -142,7 +135,6 @@ public final class AppDatabase_Impl extends AppDatabase {
   @NonNull
   protected Map<Class<?>, List<Class<?>>> getRequiredTypeConverters() {
     final HashMap<Class<?>, List<Class<?>>> _typeConvertersMap = new HashMap<Class<?>, List<Class<?>>>();
-    _typeConvertersMap.put(TrojanConfigDao.class, TrojanConfigDao_AppDatabase_Impl.getRequiredConverters());
     return _typeConvertersMap;
   }
 
@@ -159,19 +151,5 @@ public final class AppDatabase_Impl extends AppDatabase {
       @NonNull final Map<Class<? extends AutoMigrationSpec>, AutoMigrationSpec> autoMigrationSpecs) {
     final List<Migration> _autoMigrations = new ArrayList<Migration>();
     return _autoMigrations;
-  }
-
-  @Override
-  public TrojanConfigDao trojanConfigDao() {
-    if (_trojanConfigDao != null) {
-      return _trojanConfigDao;
-    } else {
-      synchronized(this) {
-        if(_trojanConfigDao == null) {
-          _trojanConfigDao = new TrojanConfigDao_AppDatabase_Impl(this);
-        }
-        return _trojanConfigDao;
-      }
-    }
   }
 }

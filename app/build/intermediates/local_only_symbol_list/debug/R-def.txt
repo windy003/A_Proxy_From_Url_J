@@ -18,6 +18,7 @@ drawable ic_vpn
 drawable ic_vpn_connected
 drawable ic_vpn_disconnected
 drawable item_background_selector
+id btnStartVpn
 id nodeInfo
 id nodeList
 id parseButton

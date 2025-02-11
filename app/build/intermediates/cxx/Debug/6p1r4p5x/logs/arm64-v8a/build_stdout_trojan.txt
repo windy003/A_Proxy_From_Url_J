@@ -1,2 +1,3 @@
 ninja: Entering directory `D:\files\projects\A_Proxy_From_Url_J\app\.cxx\Debug\6p1r4p5x\arm64-v8a'
-ninja: no work to do.
+[1/2] Building CXX object CMakeFiles/trojan.dir/trojan_jni.cpp.o
+[2/2] Linking CXX shared library D:\files\projects\A_Proxy_From_Url_J\app\build\intermediates\cxx\Debug\6p1r4p5x\obj\arm64-v8a\libtrojan.so
