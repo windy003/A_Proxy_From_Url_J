@@ -45,7 +45,7 @@
 24-->[androidx.core:core:1.9.0] C:\Users\windy\.gradle\caches\transforms-3\f0f4ee7c3b88100b2d2cd4b05ab423cd\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
 25
 26    <application
-26-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:14:5-52:19
+26-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:14:5-58:19
 27        android:allowBackup="true"
 27-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:15:9-35
 28        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -76,124 +76,132 @@
 41-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:25:27-74
 42            </intent-filter>
 43        </activity>
-44
-45        <service
-45-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:29:9-37:19
-46            android:name="com.example.proxyclient.service.ProxyVpnService"
-46-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:30:13-52
-47            android:exported="false"
-47-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:33:13-37
-48            android:foregroundServiceType="dataSync"
-48-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:32:13-53
-49            android:permission="android.permission.BIND_VPN_SERVICE" >
-49-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:31:13-69
-50            <intent-filter>
-50-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:34:13-36:29
-51                <action android:name="android.net.VpnService" />
-51-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:35:17-64
-51-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:35:25-62
-52            </intent-filter>
-53        </service>
-54        <service
-54-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:39:9-51:19
-55            android:name="com.example.proxyclient.service.VpnTileService"
-55-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:40:13-51
-56            android:exported="true"
-56-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:44:13-36
-57            android:icon="@drawable/ic_vpn_disconnected"
-57-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:42:13-57
-58            android:label="VPN 开关"
-58-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:41:13-35
-59            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE" >
-59-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:43:13-77
-60            <intent-filter>
-60-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:45:13-47:29
-61                <action android:name="android.service.quicksettings.action.QS_TILE" />
-61-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:46:17-87
-61-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:46:25-84
-62            </intent-filter>
-63
-64            <meta-data
-64-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:48:13-50:40
-65                android:name="android.service.quicksettings.ACTIVE_TILE"
-65-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:49:17-73
-66                android:value="true" />
-66-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:50:17-37
-67        </service>
-68        <service
-68-->[androidx.room:room-runtime:2.6.1] C:\Users\windy\.gradle\caches\transforms-3\2c5ddfa82d9e551fe5b89586e1bcabc6\transformed\room-runtime-2.6.1\AndroidManifest.xml:24:9-28:63
-69            android:name="androidx.room.MultiInstanceInvalidationService"
-69-->[androidx.room:room-runtime:2.6.1] C:\Users\windy\.gradle\caches\transforms-3\2c5ddfa82d9e551fe5b89586e1bcabc6\transformed\room-runtime-2.6.1\AndroidManifest.xml:25:13-74
-70            android:directBootAware="true"
-70-->[androidx.room:room-runtime:2.6.1] C:\Users\windy\.gradle\caches\transforms-3\2c5ddfa82d9e551fe5b89586e1bcabc6\transformed\room-runtime-2.6.1\AndroidManifest.xml:26:13-43
-71            android:exported="false" />
-71-->[androidx.room:room-runtime:2.6.1] C:\Users\windy\.gradle\caches\transforms-3\2c5ddfa82d9e551fe5b89586e1bcabc6\transformed\room-runtime-2.6.1\AndroidManifest.xml:27:13-37
-72
-73        <provider
-73-->[androidx.emoji2:emoji2:1.2.0] C:\Users\windy\.gradle\caches\transforms-3\4cbcf27c467347a1a697d011e0391f2d\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
-74            android:name="androidx.startup.InitializationProvider"
-74-->[androidx.emoji2:emoji2:1.2.0] C:\Users\windy\.gradle\caches\transforms-3\4cbcf27c467347a1a697d011e0391f2d\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
-75            android:authorities="com.example.proxyclient.androidx-startup"
-75-->[androidx.emoji2:emoji2:1.2.0] C:\Users\windy\.gradle\caches\transforms-3\4cbcf27c467347a1a697d011e0391f2d\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
-76            android:exported="false" >
-76-->[androidx.emoji2:emoji2:1.2.0] C:\Users\windy\.gradle\caches\transforms-3\4cbcf27c467347a1a697d011e0391f2d\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
-77            <meta-data
-77-->[androidx.emoji2:emoji2:1.2.0] C:\Users\windy\.gradle\caches\transforms-3\4cbcf27c467347a1a697d011e0391f2d\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
-78                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-78-->[androidx.emoji2:emoji2:1.2.0] C:\Users\windy\.gradle\caches\transforms-3\4cbcf27c467347a1a697d011e0391f2d\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
-79                android:value="androidx.startup" />
-79-->[androidx.emoji2:emoji2:1.2.0] C:\Users\windy\.gradle\caches\transforms-3\4cbcf27c467347a1a697d011e0391f2d\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
-80            <meta-data
-80-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\windy\.gradle\caches\transforms-3\d1c1e0b187f385ec39da9225d1799ef7\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:29:13-31:52
-81                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-81-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\windy\.gradle\caches\transforms-3\d1c1e0b187f385ec39da9225d1799ef7\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:30:17-78
-82                android:value="androidx.startup" />
-82-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\windy\.gradle\caches\transforms-3\d1c1e0b187f385ec39da9225d1799ef7\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:31:17-49
-83            <meta-data
-83-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\windy\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:29:13-31:52
-84                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-84-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\windy\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:30:17-85
-85                android:value="androidx.startup" />
-85-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\windy\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:31:17-49
-86        </provider>
-87
-88        <receiver
-88-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\windy\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:34:9-52:20
-89            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-89-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\windy\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:35:13-76
-90            android:directBootAware="false"
-90-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\windy\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:36:13-44
-91            android:enabled="true"
-91-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\windy\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:37:13-35
-92            android:exported="true"
-92-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\windy\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:38:13-36
-93            android:permission="android.permission.DUMP" >
-93-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\windy\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:39:13-57
-94            <intent-filter>
-94-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\windy\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:40:13-42:29
-95                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-95-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\windy\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:17-91
-95-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\windy\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:25-88
-96            </intent-filter>
-97            <intent-filter>
-97-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\windy\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:43:13-45:29
-98                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-98-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\windy\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:17-85
-98-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\windy\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:25-82
-99            </intent-filter>
-100            <intent-filter>
-100-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\windy\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:46:13-48:29
-101                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-101-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\windy\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:17-88
-101-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\windy\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:25-85
-102            </intent-filter>
-103            <intent-filter>
-103-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\windy\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:49:13-51:29
-104                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-104-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\windy\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:17-95
-104-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\windy\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:25-92
-105            </intent-filter>
-106        </receiver>
-107    </application>
-108
-109</manifest>
+44        <activity
+44-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:30:9-33:38
+45            android:name="com.example.proxyclient.activity.LinkInputActivity"
+45-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:31:13-55
+46            android:exported="false"
+46-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:32:13-37
+47            android:label="添加代理链接" />
+47-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:33:13-35
+48
+49        <service
+49-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:35:9-43:19
+50            android:name="com.example.proxyclient.service.ProxyVpnService"
+50-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:36:13-52
+51            android:exported="false"
+51-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:39:13-37
+52            android:foregroundServiceType="dataSync"
+52-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:38:13-53
+53            android:permission="android.permission.BIND_VPN_SERVICE" >
+53-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:37:13-69
+54            <intent-filter>
+54-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:40:13-42:29
+55                <action android:name="android.net.VpnService" />
+55-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:41:17-64
+55-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:41:25-62
+56            </intent-filter>
+57        </service>
+58        <service
+58-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:45:9-57:19
+59            android:name="com.example.proxyclient.service.VpnTileService"
+59-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:46:13-51
+60            android:exported="true"
+60-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:50:13-36
+61            android:icon="@drawable/ic_vpn_disconnected"
+61-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:48:13-57
+62            android:label="VPN 开关"
+62-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:47:13-35
+63            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE" >
+63-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:49:13-77
+64            <intent-filter>
+64-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:51:13-53:29
+65                <action android:name="android.service.quicksettings.action.QS_TILE" />
+65-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:52:17-87
+65-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:52:25-84
+66            </intent-filter>
+67
+68            <meta-data
+68-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:54:13-56:40
+69                android:name="android.service.quicksettings.ACTIVE_TILE"
+69-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:55:17-73
+70                android:value="true" />
+70-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:56:17-37
+71        </service>
+72        <service
+72-->[androidx.room:room-runtime:2.6.1] C:\Users\windy\.gradle\caches\transforms-3\2c5ddfa82d9e551fe5b89586e1bcabc6\transformed\room-runtime-2.6.1\AndroidManifest.xml:24:9-28:63
+73            android:name="androidx.room.MultiInstanceInvalidationService"
+73-->[androidx.room:room-runtime:2.6.1] C:\Users\windy\.gradle\caches\transforms-3\2c5ddfa82d9e551fe5b89586e1bcabc6\transformed\room-runtime-2.6.1\AndroidManifest.xml:25:13-74
+74            android:directBootAware="true"
+74-->[androidx.room:room-runtime:2.6.1] C:\Users\windy\.gradle\caches\transforms-3\2c5ddfa82d9e551fe5b89586e1bcabc6\transformed\room-runtime-2.6.1\AndroidManifest.xml:26:13-43
+75            android:exported="false" />
+75-->[androidx.room:room-runtime:2.6.1] C:\Users\windy\.gradle\caches\transforms-3\2c5ddfa82d9e551fe5b89586e1bcabc6\transformed\room-runtime-2.6.1\AndroidManifest.xml:27:13-37
+76
+77        <provider
+77-->[androidx.emoji2:emoji2:1.2.0] C:\Users\windy\.gradle\caches\transforms-3\4cbcf27c467347a1a697d011e0391f2d\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+78            android:name="androidx.startup.InitializationProvider"
+78-->[androidx.emoji2:emoji2:1.2.0] C:\Users\windy\.gradle\caches\transforms-3\4cbcf27c467347a1a697d011e0391f2d\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
+79            android:authorities="com.example.proxyclient.androidx-startup"
+79-->[androidx.emoji2:emoji2:1.2.0] C:\Users\windy\.gradle\caches\transforms-3\4cbcf27c467347a1a697d011e0391f2d\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
+80            android:exported="false" >
+80-->[androidx.emoji2:emoji2:1.2.0] C:\Users\windy\.gradle\caches\transforms-3\4cbcf27c467347a1a697d011e0391f2d\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
+81            <meta-data
+81-->[androidx.emoji2:emoji2:1.2.0] C:\Users\windy\.gradle\caches\transforms-3\4cbcf27c467347a1a697d011e0391f2d\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+82                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+82-->[androidx.emoji2:emoji2:1.2.0] C:\Users\windy\.gradle\caches\transforms-3\4cbcf27c467347a1a697d011e0391f2d\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
+83                android:value="androidx.startup" />
+83-->[androidx.emoji2:emoji2:1.2.0] C:\Users\windy\.gradle\caches\transforms-3\4cbcf27c467347a1a697d011e0391f2d\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
+84            <meta-data
+84-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\windy\.gradle\caches\transforms-3\d1c1e0b187f385ec39da9225d1799ef7\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:29:13-31:52
+85                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+85-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\windy\.gradle\caches\transforms-3\d1c1e0b187f385ec39da9225d1799ef7\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:30:17-78
+86                android:value="androidx.startup" />
+86-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\windy\.gradle\caches\transforms-3\d1c1e0b187f385ec39da9225d1799ef7\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:31:17-49
+87            <meta-data
+87-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\windy\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:29:13-31:52
+88                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+88-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\windy\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:30:17-85
+89                android:value="androidx.startup" />
+89-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\windy\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:31:17-49
+90        </provider>
+91
+92        <receiver
+92-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\windy\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:34:9-52:20
+93            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+93-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\windy\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:35:13-76
+94            android:directBootAware="false"
+94-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\windy\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:36:13-44
+95            android:enabled="true"
+95-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\windy\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:37:13-35
+96            android:exported="true"
+96-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\windy\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:38:13-36
+97            android:permission="android.permission.DUMP" >
+97-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\windy\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:39:13-57
+98            <intent-filter>
+98-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\windy\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:40:13-42:29
+99                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+99-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\windy\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:17-91
+99-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\windy\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:25-88
+100            </intent-filter>
+101            <intent-filter>
+101-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\windy\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:43:13-45:29
+102                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+102-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\windy\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:17-85
+102-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\windy\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:25-82
+103            </intent-filter>
+104            <intent-filter>
+104-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\windy\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:46:13-48:29
+105                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+105-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\windy\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:17-88
+105-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\windy\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:25-85
+106            </intent-filter>
+107            <intent-filter>
+107-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\windy\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:49:13-51:29
+108                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+108-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\windy\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:17-95
+108-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\windy\.gradle\caches\transforms-3\9cc5a4a18c45fd86efd7331730c4561d\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:25-92
+109            </intent-filter>
+110        </receiver>
+111    </application>
+112
+113</manifest>

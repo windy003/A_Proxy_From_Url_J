@@ -26,6 +26,12 @@
             </intent-filter>
         </activity>
 
+
+        <activity
+            android:name=".activity.LinkInputActivity"
+            android:exported="false"
+            android:label="添加代理链接" />
+
         <service
             android:name=".service.ProxyVpnService"
             android:permission="android.permission.BIND_VPN_SERVICE"

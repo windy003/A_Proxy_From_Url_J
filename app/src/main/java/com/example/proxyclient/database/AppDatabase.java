@@ -4,8 +4,11 @@ import androidx.room.Database;
 import androidx.room.RoomDatabase;
 
 import com.example.proxyclient.model.XrayConfig;
+import com.example.proxyclient.model.TrojanConfig;
 
-@Database(entities = {XrayConfig.class}, version = 1, exportSchema = false)
+@Database(entities = {XrayConfig.class, TrojanConfig.class}, version = 1, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
-    // 后续添加 Xray 相关的 DAO
+    // DAO 声明
+    public abstract XrayConfigDao xrayConfigDao();
+    public abstract TrojanConfigDao trojanConfigDao();
 } 

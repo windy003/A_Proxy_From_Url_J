@@ -41,6 +41,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.example.proxyclient.activity.LinkInputActivity"
+            android:exported="false"
+            android:label="添加代理链接" />
 
         <service
             android:name="com.example.proxyclient.service.ProxyVpnService"

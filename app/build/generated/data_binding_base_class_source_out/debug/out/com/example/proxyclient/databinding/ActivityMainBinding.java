@@ -24,6 +24,9 @@ public final class ActivityMainBinding implements ViewBinding {
   private final LinearLayout rootView;
 
   @NonNull
+  public final Button addLinkButton;
+
+  @NonNull
   public final Button btnStartVpn;
 
   @NonNull
@@ -41,10 +44,11 @@ public final class ActivityMainBinding implements ViewBinding {
   @NonNull
   public final Switch vpnSwitch;
 
-  private ActivityMainBinding(@NonNull LinearLayout rootView, @NonNull Button btnStartVpn,
-      @NonNull TextView nodeInfo, @NonNull ListView nodeList, @NonNull Button parseButton,
-      @NonNull EditText urlInput, @NonNull Switch vpnSwitch) {
+  private ActivityMainBinding(@NonNull LinearLayout rootView, @NonNull Button addLinkButton,
+      @NonNull Button btnStartVpn, @NonNull TextView nodeInfo, @NonNull ListView nodeList,
+      @NonNull Button parseButton, @NonNull EditText urlInput, @NonNull Switch vpnSwitch) {
     this.rootView = rootView;
+    this.addLinkButton = addLinkButton;
     this.btnStartVpn = btnStartVpn;
     this.nodeInfo = nodeInfo;
     this.nodeList = nodeList;
@@ -80,6 +84,12 @@ public final class ActivityMainBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.add_link_button;
+      Button addLinkButton = ViewBindings.findChildViewById(rootView, id);
+      if (addLinkButton == null) {
+        break missingId;
+      }
+
       id = R.id.btnStartVpn;
       Button btnStartVpn = ViewBindings.findChildViewById(rootView, id);
       if (btnStartVpn == null) {
@@ -116,8 +126,8 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityMainBinding((LinearLayout) rootView, btnStartVpn, nodeInfo, nodeList,
-          parseButton, urlInput, vpnSwitch);
+      return new ActivityMainBinding((LinearLayout) rootView, addLinkButton, btnStartVpn, nodeInfo,
+          nodeList, parseButton, urlInput, vpnSwitch);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

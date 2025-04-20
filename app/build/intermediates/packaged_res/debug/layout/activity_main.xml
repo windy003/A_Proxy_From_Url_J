@@ -83,4 +83,11 @@
         android:layout_marginRight="16dp"
         android:layout_marginTop="8dp" />
 
+    <Button
+        android:id="@+id/add_link_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="添加代理链接"
+        android:layout_margin="16dp"/>
+
 </LinearLayout> 

@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:2:1-53:12
-INJECTED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:2:1-53:12
-INJECTED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:2:1-53:12
-INJECTED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:2:1-53:12
+ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:2:1-59:12
+INJECTED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:2:1-59:12
+INJECTED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:2:1-59:12
+INJECTED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:2:1-59:12
 MERGED from [androidx.databinding:viewbinding:8.2.0] C:\Users\windy\.gradle\caches\transforms-3\cb4c9e221047491d065c698965359e55\transformed\viewbinding-8.2.0\AndroidManifest.xml:2:1-7:12
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\windy\.gradle\caches\transforms-3\74a2558674f6dcad48a387d806131537\transformed\material-1.11.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\windy\.gradle\caches\transforms-3\4bcbdb61f70c63be020394c3ae9403e9\transformed\constraintlayout-2.1.4\AndroidManifest.xml:2:1-11:12
@@ -92,8 +92,8 @@ ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml
 	android:name
 		ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:12:22-84
 application
-ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:14:5-52:19
-INJECTED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:14:5-52:19
+ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:14:5-58:19
+INJECTED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:14:5-58:19
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\windy\.gradle\caches\transforms-3\74a2558674f6dcad48a387d806131537\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.11.0] C:\Users\windy\.gradle\caches\transforms-3\74a2558674f6dcad48a387d806131537\transformed\material-1.11.0\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.1.4] C:\Users\windy\.gradle\caches\transforms-3\4bcbdb61f70c63be020394c3ae9403e9\transformed\constraintlayout-2.1.4\AndroidManifest.xml:9:5-20
@@ -140,46 +140,54 @@ category#android.intent.category.LAUNCHER
 ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:25:17-77
 	android:name
 		ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:25:27-74
-service#com.example.proxyclient.service.ProxyVpnService
-ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:29:9-37:19
-	android:exported
-		ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:33:13-37
-	android:permission
-		ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:31:13-69
-	android:foregroundServiceType
-		ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:32:13-53
-	android:name
-		ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:30:13-52
-intent-filter#action:name:android.net.VpnService
-ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:34:13-36:29
-action#android.net.VpnService
-ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:35:17-64
-	android:name
-		ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:35:25-62
-service#com.example.proxyclient.service.VpnTileService
-ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:39:9-51:19
+activity#com.example.proxyclient.activity.LinkInputActivity
+ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:30:9-33:38
 	android:label
-		ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:41:13-35
+		ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:33:13-35
 	android:exported
-		ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:44:13-36
+		ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:32:13-37
+	android:name
+		ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:31:13-55
+service#com.example.proxyclient.service.ProxyVpnService
+ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:35:9-43:19
+	android:exported
+		ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:39:13-37
 	android:permission
-		ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:43:13-77
+		ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:37:13-69
+	android:foregroundServiceType
+		ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:38:13-53
+	android:name
+		ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:36:13-52
+intent-filter#action:name:android.net.VpnService
+ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:40:13-42:29
+action#android.net.VpnService
+ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:41:17-64
+	android:name
+		ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:41:25-62
+service#com.example.proxyclient.service.VpnTileService
+ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:45:9-57:19
+	android:label
+		ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:47:13-35
+	android:exported
+		ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:50:13-36
+	android:permission
+		ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:49:13-77
 	android:icon
-		ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:42:13-57
+		ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:48:13-57
 	android:name
-		ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:40:13-51
+		ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:46:13-51
 intent-filter#action:name:android.service.quicksettings.action.QS_TILE
-ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:45:13-47:29
+ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:51:13-53:29
 action#android.service.quicksettings.action.QS_TILE
-ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:46:17-87
+ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:52:17-87
 	android:name
-		ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:46:25-84
+		ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:52:25-84
 meta-data#android.service.quicksettings.ACTIVE_TILE
-ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:48:13-50:40
+ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:54:13-56:40
 	android:value
-		ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:50:17-37
+		ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:56:17-37
 	android:name
-		ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:49:17-73
+		ADDED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:55:17-73
 uses-sdk
 INJECTED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml
