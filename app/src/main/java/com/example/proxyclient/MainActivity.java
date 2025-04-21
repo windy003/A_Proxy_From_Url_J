@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.proxyclient.service.ProxyVpnService;
 import com.example.proxyclient.activity.LinkInputActivity;
+import com.example.proxyclient.utils.NetworkUtils;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
@@ -60,6 +61,10 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        // 在布局中添加测试按钮后，绑定点击事件
+        Button testConnectionButton = findViewById(R.id.test_connection_button);
+        testConnectionButton.setOnClickListener(v -> testConnection());
     }
     
     private void prepareVpn() {
@@ -74,6 +79,8 @@ public class MainActivity extends AppCompatActivity {
     private void startVpnService() {
         if (!isVpnRunning) {
             Intent intent = new Intent(this, ProxyVpnService.class);
+            // 传递Trojan的本地SOCKS5代理端口
+            intent.putExtra("trojanPort", 1080); // 确保这与TrojanConfig中的本地端口一致
             startService(intent);
             btnStartVpn.setText("停止VPN");
             isVpnRunning = true;
@@ -113,5 +120,24 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void testConnection() {
+        Toast.makeText(this, "正在测试连接...", Toast.LENGTH_SHORT).show();
+        NetworkUtils.testProxyConnection("127.0.0.1", 1080, new NetworkUtils.TestCallback() {
+            @Override
+            public void onSuccess() {
+                runOnUiThread(() -> {
+                    Toast.makeText(MainActivity.this, "连接测试成功！可以正常访问外网", Toast.LENGTH_LONG).show();
+                });
+            }
+            
+            @Override
+            public void onFailure(String message) {
+                runOnUiThread(() -> {
+                    Toast.makeText(MainActivity.this, "连接测试失败: " + message, Toast.LENGTH_LONG).show();
+                });
+            }
+        });
     }
 }

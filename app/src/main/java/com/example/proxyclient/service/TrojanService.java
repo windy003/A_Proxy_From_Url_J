@@ -88,6 +88,9 @@ public class TrojanService {
         isConnecting = true;
         executorService.execute(() -> {
             try {
+                // 记录配置信息（调试用）
+                logConfigDetails(config);
+                
                 // 生成配置JSON
                 String configJson = config.generateConfigJson();
                 Log.d(TAG, "生成的Trojan配置: " + configJson);
@@ -155,5 +158,31 @@ public class TrojanService {
     public interface ConnectCallback {
         void onSuccess();
         void onError(String message);
+    }
+    
+    // 添加调试日志以确认Trojan配置正确
+    private void logConfigDetails(TrojanConfig config) {
+        Log.d(TAG, "正在连接Trojan服务器:");
+        Log.d(TAG, "服务器地址: " + config.getServerAddress());
+        Log.d(TAG, "端口: " + config.getServerPort());
+        Log.d(TAG, "SNI: " + config.getSni());
+        Log.d(TAG, "启用UDP: " + config.isEnableUdp());
+        // 不要记录密码等敏感信息
+    }
+    
+    /**
+     * 获取本地SOCKS5端口
+     */
+    public int getLocalPort() {
+        // 返回配置的本地端口，通常是1080
+        return 1080; // 如果TrojanConfig中有具体设置，则返回实际值
+    }
+    
+    /**
+     * 检查Trojan代理是否正在运行
+     */
+    public boolean isRunning() {
+        // 可能需要通过JNI调用检查Trojan状态
+        return isXrayRunning();
     }
 } 

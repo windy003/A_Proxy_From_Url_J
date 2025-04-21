@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.viewbinding.ViewBinding;
@@ -30,6 +31,9 @@ public final class ActivityLinkInputBinding implements ViewBinding {
   public final RadioGroup linkTypeRadioGroup;
 
   @NonNull
+  public final TextView nodeInfoTextView;
+
+  @NonNull
   public final ProgressBar progressBar;
 
   @NonNull
@@ -43,11 +47,13 @@ public final class ActivityLinkInputBinding implements ViewBinding {
 
   private ActivityLinkInputBinding(@NonNull LinearLayout rootView,
       @NonNull EditText linkInputEditText, @NonNull RadioGroup linkTypeRadioGroup,
-      @NonNull ProgressBar progressBar, @NonNull Button submitButton,
-      @NonNull RadioButton subscriptionRadioButton, @NonNull RadioButton trojanRadioButton) {
+      @NonNull TextView nodeInfoTextView, @NonNull ProgressBar progressBar,
+      @NonNull Button submitButton, @NonNull RadioButton subscriptionRadioButton,
+      @NonNull RadioButton trojanRadioButton) {
     this.rootView = rootView;
     this.linkInputEditText = linkInputEditText;
     this.linkTypeRadioGroup = linkTypeRadioGroup;
+    this.nodeInfoTextView = nodeInfoTextView;
     this.progressBar = progressBar;
     this.submitButton = submitButton;
     this.subscriptionRadioButton = subscriptionRadioButton;
@@ -93,6 +99,12 @@ public final class ActivityLinkInputBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.node_info_text_view;
+      TextView nodeInfoTextView = ViewBindings.findChildViewById(rootView, id);
+      if (nodeInfoTextView == null) {
+        break missingId;
+      }
+
       id = R.id.progress_bar;
       ProgressBar progressBar = ViewBindings.findChildViewById(rootView, id);
       if (progressBar == null) {
@@ -118,7 +130,7 @@ public final class ActivityLinkInputBinding implements ViewBinding {
       }
 
       return new ActivityLinkInputBinding((LinearLayout) rootView, linkInputEditText,
-          linkTypeRadioGroup, progressBar, submitButton, subscriptionRadioButton,
+          linkTypeRadioGroup, nodeInfoTextView, progressBar, submitButton, subscriptionRadioButton,
           trojanRadioButton);
     }
     String missingId = rootView.getResources().getResourceName(id);

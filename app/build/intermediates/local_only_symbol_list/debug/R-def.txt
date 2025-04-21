@@ -26,10 +26,12 @@ id link_input_edit_text
 id link_type_radio_group
 id nodeInfo
 id nodeList
+id node_info_text_view
 id parseButton
 id progress_bar
 id submit_button
 id subscription_radio_button
+id test_connection_button
 id trojan_radio_button
 id tvName
 id tvRegion

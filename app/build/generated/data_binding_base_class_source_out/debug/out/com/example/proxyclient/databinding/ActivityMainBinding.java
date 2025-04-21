@@ -39,6 +39,9 @@ public final class ActivityMainBinding implements ViewBinding {
   public final Button parseButton;
 
   @NonNull
+  public final Button testConnectionButton;
+
+  @NonNull
   public final EditText urlInput;
 
   @NonNull
@@ -46,13 +49,15 @@ public final class ActivityMainBinding implements ViewBinding {
 
   private ActivityMainBinding(@NonNull LinearLayout rootView, @NonNull Button addLinkButton,
       @NonNull Button btnStartVpn, @NonNull TextView nodeInfo, @NonNull ListView nodeList,
-      @NonNull Button parseButton, @NonNull EditText urlInput, @NonNull Switch vpnSwitch) {
+      @NonNull Button parseButton, @NonNull Button testConnectionButton, @NonNull EditText urlInput,
+      @NonNull Switch vpnSwitch) {
     this.rootView = rootView;
     this.addLinkButton = addLinkButton;
     this.btnStartVpn = btnStartVpn;
     this.nodeInfo = nodeInfo;
     this.nodeList = nodeList;
     this.parseButton = parseButton;
+    this.testConnectionButton = testConnectionButton;
     this.urlInput = urlInput;
     this.vpnSwitch = vpnSwitch;
   }
@@ -114,6 +119,12 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.test_connection_button;
+      Button testConnectionButton = ViewBindings.findChildViewById(rootView, id);
+      if (testConnectionButton == null) {
+        break missingId;
+      }
+
       id = R.id.urlInput;
       EditText urlInput = ViewBindings.findChildViewById(rootView, id);
       if (urlInput == null) {
@@ -127,7 +138,7 @@ public final class ActivityMainBinding implements ViewBinding {
       }
 
       return new ActivityMainBinding((LinearLayout) rootView, addLinkButton, btnStartVpn, nodeInfo,
-          nodeList, parseButton, urlInput, vpnSwitch);
+          nodeList, parseButton, testConnectionButton, urlInput, vpnSwitch);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

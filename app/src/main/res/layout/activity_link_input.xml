@@ -49,6 +49,16 @@
         android:layout_height="wrap_content"
         android:text="提交" />
 
+    <TextView
+        android:id="@+id/node_info_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="#F5F5F5"
+        android:padding="12dp"
+        android:textSize="14sp"
+        android:visibility="gone" />
+
     <ProgressBar
         android:id="@+id/progress_bar"
         android:layout_width="wrap_content"

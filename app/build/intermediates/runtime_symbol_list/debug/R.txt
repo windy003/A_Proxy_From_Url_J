@@ -3401,6 +3401,7 @@ int id noScroll 0x7f08013a
 int id noState 0x7f08013b
 int id nodeInfo 0x7f08013c
 int id nodeList 0x7f08013d
+int id node_info_text_view 0x7f080201
 int id none 0x7f08013e
 int id normal 0x7f08013f
 int id north 0x7f080140
@@ -3535,6 +3536,7 @@ int id tag_transition_group 0x7f0801c0
 int id tag_unhandled_key_event_manager 0x7f0801c1
 int id tag_unhandled_key_listeners 0x7f0801c2
 int id tag_window_insets_animation_callback 0x7f0801c3
+int id test_connection_button 0x7f080202
 int id text 0x7f0801c4
 int id text2 0x7f0801c5
 int id textEnd 0x7f0801c6
