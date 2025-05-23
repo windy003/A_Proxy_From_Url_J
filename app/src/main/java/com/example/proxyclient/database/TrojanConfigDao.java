@@ -26,6 +26,7 @@ public interface TrojanConfigDao {
     @Query("SELECT * FROM trojan_configs ORDER BY name")
     LiveData<List<TrojanConfig>> getAllConfigs();
 
+    @Query("SELECT * FROM trojan_configs ORDER BY name")
     @Query("SELECT * FROM trojan_configs WHERE id = :id")
     TrojanConfig getConfigById(long id);
 

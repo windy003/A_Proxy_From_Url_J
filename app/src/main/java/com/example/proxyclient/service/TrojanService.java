@@ -26,6 +26,7 @@ public class TrojanService {
     private native int initTrojan(String config);
     private native int startTrojan();
     private native void stopTrojan();
+    private native boolean isTrojanRunning();
     
     private TrojanService() {
         executorService = Executors.newSingleThreadExecutor();
@@ -182,7 +183,7 @@ public class TrojanService {
      * 检查Trojan代理是否正在运行
      */
     public boolean isRunning() {
-        // 可能需要通过JNI调用检查Trojan状态
-        return isXrayRunning();
+        // 修复：调用正确的native方法
+        return isTrojanRunning();
     }
 } 

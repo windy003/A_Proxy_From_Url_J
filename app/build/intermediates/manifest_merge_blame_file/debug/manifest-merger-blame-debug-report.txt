@@ -9,29 +9,29 @@
 9        android:targetSdkVersion="34" />
 10
 11    <uses-permission android:name="android.permission.INTERNET" />
-11-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:5:5-67
-11-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:5:22-64
+11-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:5:5-67
+11-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:5:22-64
 12    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-12-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:6:5-77
-12-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:6:22-74
+12-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:6:5-77
+12-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:6:22-74
 13    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
-13-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:7:5-89
-13-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:7:22-86
+13-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:7:5-89
+13-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:7:22-86
 14    <uses-permission android:name="android.permission.BROADCAST_CLOSE_SYSTEM_DIALOGS" />
-14-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:8:5-89
-14-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:8:22-86
+14-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:8:5-89
+14-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:8:22-86
 15    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
-15-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:9:5-77
-15-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:9:22-74
+15-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:9:5-77
+15-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:9:22-74
 16    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-16-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:10:5-77
-16-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:10:22-74
+16-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:10:5-77
+16-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:10:22-74
 17    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-17-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:11:5-79
-17-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:11:22-76
+17-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:11:5-79
+17-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:11:22-76
 18    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC" />
-18-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:12:5-87
-18-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:12:22-84
+18-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:12:5-87
+18-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:12:22-84
 19
 20    <permission
 20-->[androidx.core:core:1.9.0] C:\Users\windy\.gradle\caches\transforms-3\f0f4ee7c3b88100b2d2cd4b05ab423cd\transformed\core-1.9.0\AndroidManifest.xml:22:5-24:47
@@ -45,88 +45,88 @@
 24-->[androidx.core:core:1.9.0] C:\Users\windy\.gradle\caches\transforms-3\f0f4ee7c3b88100b2d2cd4b05ab423cd\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
 25
 26    <application
-26-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:14:5-58:19
+26-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:14:5-58:19
 27        android:allowBackup="true"
-27-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:15:9-35
+27-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:15:9-35
 28        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 28-->[androidx.core:core:1.9.0] C:\Users\windy\.gradle\caches\transforms-3\f0f4ee7c3b88100b2d2cd4b05ab423cd\transformed\core-1.9.0\AndroidManifest.xml:28:18-86
 29        android:debuggable="true"
 30        android:extractNativeLibs="true"
 31        android:label="Proxy Client"
-31-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:16:9-37
+31-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:16:9-37
 32        android:supportsRtl="true"
-32-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:17:9-35
+32-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:17:9-35
 33        android:testOnly="true"
 34        android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
-34-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:18:9-67
+34-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:18:9-67
 35        <activity
-35-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:20:9-27:20
+35-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:20:9-27:20
 36            android:name="com.example.proxyclient.MainActivity"
-36-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:21:13-41
+36-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:21:13-41
 37            android:exported="true" >
-37-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:22:13-36
+37-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:22:13-36
 38            <intent-filter>
-38-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:23:13-26:29
+38-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:23:13-26:29
 39                <action android:name="android.intent.action.MAIN" />
-39-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:24:17-69
-39-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:24:25-66
+39-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:24:17-69
+39-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:24:25-66
 40
 41                <category android:name="android.intent.category.LAUNCHER" />
-41-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:25:17-77
-41-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:25:27-74
+41-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:25:17-77
+41-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:25:27-74
 42            </intent-filter>
 43        </activity>
 44        <activity
-44-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:30:9-33:38
+44-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:30:9-33:38
 45            android:name="com.example.proxyclient.activity.LinkInputActivity"
-45-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:31:13-55
+45-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:31:13-55
 46            android:exported="false"
-46-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:32:13-37
+46-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:32:13-37
 47            android:label="添加代理链接" />
-47-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:33:13-35
+47-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:33:13-35
 48
 49        <service
-49-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:35:9-43:19
+49-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:35:9-43:19
 50            android:name="com.example.proxyclient.service.ProxyVpnService"
-50-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:36:13-52
+50-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:36:13-52
 51            android:exported="false"
-51-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:39:13-37
+51-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:39:13-37
 52            android:foregroundServiceType="dataSync"
-52-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:38:13-53
+52-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:38:13-53
 53            android:permission="android.permission.BIND_VPN_SERVICE" >
-53-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:37:13-69
+53-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:37:13-69
 54            <intent-filter>
-54-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:40:13-42:29
+54-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:40:13-42:29
 55                <action android:name="android.net.VpnService" />
-55-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:41:17-64
-55-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:41:25-62
+55-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:41:17-64
+55-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:41:25-62
 56            </intent-filter>
 57        </service>
 58        <service
-58-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:45:9-57:19
+58-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:45:9-57:19
 59            android:name="com.example.proxyclient.service.VpnTileService"
-59-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:46:13-51
+59-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:46:13-51
 60            android:exported="true"
-60-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:50:13-36
+60-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:50:13-36
 61            android:icon="@drawable/ic_vpn_disconnected"
-61-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:48:13-57
+61-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:48:13-57
 62            android:label="VPN 开关"
-62-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:47:13-35
+62-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:47:13-35
 63            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE" >
-63-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:49:13-77
+63-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:49:13-77
 64            <intent-filter>
-64-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:51:13-53:29
+64-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:51:13-53:29
 65                <action android:name="android.service.quicksettings.action.QS_TILE" />
-65-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:52:17-87
-65-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:52:25-84
+65-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:52:17-87
+65-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:52:25-84
 66            </intent-filter>
 67
 68            <meta-data
-68-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:54:13-56:40
+68-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:54:13-56:40
 69                android:name="android.service.quicksettings.ACTIVE_TILE"
-69-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:55:17-73
+69-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:55:17-73
 70                android:value="true" />
-70-->D:\files\projects\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:56:17-37
+70-->C:\Users\windy\Desktop\A_Proxy_From_Url_J\app\src\main\AndroidManifest.xml:56:17-37
 71        </service>
 72        <service
 72-->[androidx.room:room-runtime:2.6.1] C:\Users\windy\.gradle\caches\transforms-3\2c5ddfa82d9e551fe5b89586e1bcabc6\transformed\room-runtime-2.6.1\AndroidManifest.xml:24:9-28:63

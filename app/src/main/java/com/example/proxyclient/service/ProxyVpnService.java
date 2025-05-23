@@ -94,37 +94,34 @@ public class ProxyVpnService extends VpnService {
     }
     
     private void startVpnThread() {
-        // 这里创建线程处理VPN数据并转发到本地Trojan代理
         new Thread(() -> {
             try {
-                // 使用当前线程的Looper
-                Looper.prepare();
-                
                 FileInputStream in = new FileInputStream(vpnInterface.getFileDescriptor());
                 FileOutputStream out = new FileOutputStream(vpnInterface.getFileDescriptor());
                 
-                // 将本地VPN流量转发到SOCKS5代理
-                // 这里通常需要使用JNI调用本地代码或使用Java实现的SOCKS5客户端
-                // 简化版代码：
                 byte[] buffer = new byte[VPN_MTU];
+                
+                // 改进：使用更完善的代理处理器
                 ProxySocks5Handler proxySocks5Handler = new ProxySocks5Handler("127.0.0.1", trojanPort);
                 
-                while (!Thread.interrupted()) {
-                    // 读取VPN数据
-                    int length = in.read(buffer);
-                    if (length > 0) {
-                        // 处理VPN数据包并转发到SOCKS5代理
-                        proxySocks5Handler.handleVpnPacket(buffer, length, out);
+                while (!Thread.interrupted() && vpnInterface != null) {
+                    try {
+                        int length = in.read(buffer);
+                        if (length > 0) {
+                            // 处理VPN数据包
+                            proxySocks5Handler.handleVpnPacket(buffer, length, out);
+                        }
+                    } catch (Exception e) {
+                        Log.e(TAG, "处理VPN数据包失败", e);
+                        break;
                     }
                 }
-                
-                Looper.loop();
             } catch (Exception e) {
                 Log.e(TAG, "VPN线程异常", e);
             } finally {
                 closeVpnInterface();
             }
-        }).start();
+        }, "VPN-Thread").start();
     }
     
     private void closeVpnInterface() {

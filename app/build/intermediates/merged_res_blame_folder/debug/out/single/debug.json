@@ -16,12 +16,20 @@
         "source": "C:\\Users\\windy\\.gradle\\daemon\\8.2\\com.example.proxyclient.app-main-37:\\layout\\activity_main.xml"
     },
     {
-        "merged": "com.example.proxyclient.app-merged_res-35:/layout_activity_main.xml.flat",
-        "source": "com.example.proxyclient.app-main-37:/layout/activity_main.xml"
-    },
-    {
         "merged": "C:\\Users\\windy\\.gradle\\daemon\\8.2\\com.example.proxyclient.app-merged_res-35:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
         "source": "C:\\Users\\windy\\.gradle\\daemon\\8.2\\com.example.proxyclient.app-main-37:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\windy\\.gradle\\daemon\\8.2\\com.example.proxyclient.app-merged_res-35:\\drawable_item_selected_background.xml.flat",
+        "source": "C:\\Users\\windy\\.gradle\\daemon\\8.2\\com.example.proxyclient.app-main-37:\\drawable\\item_selected_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\windy\\.gradle\\daemon\\8.2\\com.example.proxyclient.app-merged_res-35:\\drawable_item_normal_background.xml.flat",
+        "source": "C:\\Users\\windy\\.gradle\\daemon\\8.2\\com.example.proxyclient.app-main-37:\\drawable\\item_normal_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\windy\\.gradle\\daemon\\8.2\\com.example.proxyclient.app-merged_res-35:\\layout_item_server.xml.flat",
+        "source": "C:\\Users\\windy\\.gradle\\daemon\\8.2\\com.example.proxyclient.app-main-37:\\layout\\item_server.xml"
     },
     {
         "merged": "C:\\Users\\windy\\.gradle\\daemon\\8.2\\com.example.proxyclient.app-merged_res-35:\\drawable_ic_launcher_foreground.xml.flat",
@@ -32,8 +40,20 @@
         "source": "C:\\Users\\windy\\.gradle\\daemon\\8.2\\com.example.proxyclient.app-main-37:\\menu\\main_menu.xml"
     },
     {
+        "merged": "com.example.proxyclient.app-merged_res-35:/menu_server_menu.xml.flat",
+        "source": "com.example.proxyclient.app-main-37:/menu/server_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\windy\\.gradle\\daemon\\8.2\\com.example.proxyclient.app-merged_res-35:\\drawable_ic_radio_unselected.xml.flat",
+        "source": "C:\\Users\\windy\\.gradle\\daemon\\8.2\\com.example.proxyclient.app-main-37:\\drawable\\ic_radio_unselected.xml"
+    },
+    {
         "merged": "C:\\Users\\windy\\.gradle\\daemon\\8.2\\com.example.proxyclient.app-merged_res-35:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
         "source": "C:\\Users\\windy\\.gradle\\daemon\\8.2\\com.example.proxyclient.app-main-37:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\windy\\.gradle\\daemon\\8.2\\com.example.proxyclient.app-merged_res-35:\\drawable_ic_radio_selected.xml.flat",
+        "source": "C:\\Users\\windy\\.gradle\\daemon\\8.2\\com.example.proxyclient.app-main-37:\\drawable\\ic_radio_selected.xml"
     },
     {
         "merged": "C:\\Users\\windy\\.gradle\\daemon\\8.2\\com.example.proxyclient.app-merged_res-35:\\layout_item_trojan_config.xml.flat",
@@ -46,6 +66,10 @@
     {
         "merged": "C:\\Users\\windy\\.gradle\\daemon\\8.2\\com.example.proxyclient.app-merged_res-35:\\drawable_ic_vpn_disconnected.xml.flat",
         "source": "C:\\Users\\windy\\.gradle\\daemon\\8.2\\com.example.proxyclient.app-main-37:\\drawable\\ic_vpn_disconnected.xml"
+    },
+    {
+        "merged": "C:\\Users\\windy\\.gradle\\daemon\\8.2\\com.example.proxyclient.app-merged_res-35:\\drawable_ic_more_vert.xml.flat",
+        "source": "C:\\Users\\windy\\.gradle\\daemon\\8.2\\com.example.proxyclient.app-main-37:\\drawable\\ic_more_vert.xml"
     },
     {
         "merged": "C:\\Users\\windy\\.gradle\\daemon\\8.2\\com.example.proxyclient.app-merged_res-35:\\drawable_ic_vpn.xml.flat",

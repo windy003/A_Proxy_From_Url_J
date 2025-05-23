@@ -3000,16 +3000,21 @@ drawable ic_launcher_foreground
 drawable ic_m3_chip_check
 drawable ic_m3_chip_checked_circle
 drawable ic_m3_chip_close
+drawable ic_more_vert
 drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_notification
+drawable ic_radio_selected
+drawable ic_radio_unselected
 drawable ic_search_black_24
 drawable ic_vpn
 drawable ic_vpn_connected
 drawable ic_vpn_disconnected
 drawable item_background_selector
+drawable item_normal_background
+drawable item_selected_background
 drawable m3_avd_hide_password
 drawable m3_avd_show_password
 drawable m3_bottom_sheet_drag_handle
@@ -3143,9 +3148,12 @@ id action_bar_root
 id action_bar_spinner
 id action_bar_subtitle
 id action_bar_title
+id action_connect
 id action_container
 id action_context_bar
+id action_delete
 id action_divider
+id action_edit
 id action_image
 id action_menu_divider
 id action_menu_presenter
@@ -3157,6 +3165,7 @@ id actions
 id activity_chooser_view_content
 id add
 id add_link_button
+id add_to_list_button
 id alertTitle
 id aligned
 id all
@@ -3210,6 +3219,7 @@ id closest
 id collapseActionView
 id compress
 id confirm_button
+id connection_status
 id constraint
 id container
 id content
@@ -3221,6 +3231,7 @@ id cos
 id counterclockwise
 id cradle
 id currentState
+id current_server
 id custom
 id customPanel
 id cut
@@ -3354,6 +3365,7 @@ id material_timepicker_ok_button
 id material_timepicker_view
 id material_value_index
 id matrix
+id menu_icon
 id message
 id middle
 id mini
@@ -3400,8 +3412,6 @@ id neverCompleteToEnd
 id neverCompleteToStart
 id noScroll
 id noState
-id nodeInfo
-id nodeList
 id node_info_text_view
 id none
 id normal
@@ -3435,7 +3445,6 @@ id parent
 id parentPanel
 id parentRelative
 id parent_matrix
-id parseButton
 id password_toggle
 id path
 id pathRelative
@@ -3449,6 +3458,8 @@ id pressed
 id progress_bar
 id progress_circular
 id progress_horizontal
+id quick_connect_button
+id quick_url_input
 id radio
 id ratio
 id rectangles
@@ -3483,6 +3494,10 @@ id search_voice_btn
 id select_dialog_listview
 id selected
 id selection_type
+id server_address
+id server_info
+id server_list
+id server_name
 id sharedValueSet
 id sharedValueUnset
 id shortcut
@@ -3516,6 +3531,7 @@ id startToEnd
 id startVertical
 id staticLayout
 id staticPostLayout
+id status_icon
 id stop
 id stretch
 id submenuarrow
@@ -3578,7 +3594,6 @@ id unchecked
 id uniform
 id unlabeled
 id up
-id urlInput
 id useLogo
 id vertical_only
 id view_offset_helper
@@ -3589,7 +3604,7 @@ id view_tree_saved_state_registry_owner
 id view_tree_view_model_store_owner
 id visible
 id visible_removing_fragment_view_tag
-id vpnSwitch
+id vpn_switch
 id west
 id withText
 id with_icon
@@ -3731,6 +3746,7 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout item_server
 layout item_trojan_config
 layout item_trojan_node
 layout m3_alert_dialog
@@ -3795,6 +3811,7 @@ layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
 menu main_menu
+menu server_menu
 mipmap ic_launcher
 mipmap ic_launcher_round
 plurals mtrl_badge_content_description

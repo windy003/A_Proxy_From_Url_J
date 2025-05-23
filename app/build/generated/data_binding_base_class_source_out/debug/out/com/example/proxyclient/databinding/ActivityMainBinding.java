@@ -7,11 +7,11 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.Switch;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import androidx.viewbinding.ViewBindings;
 import com.example.proxyclient.R;
@@ -27,38 +27,48 @@ public final class ActivityMainBinding implements ViewBinding {
   public final Button addLinkButton;
 
   @NonNull
+  public final Button addToListButton;
+
+  @NonNull
   public final Button btnStartVpn;
 
   @NonNull
-  public final TextView nodeInfo;
+  public final TextView connectionStatus;
 
   @NonNull
-  public final ListView nodeList;
+  public final TextView currentServer;
 
   @NonNull
-  public final Button parseButton;
+  public final Button quickConnectButton;
+
+  @NonNull
+  public final EditText quickUrlInput;
+
+  @NonNull
+  public final RecyclerView serverList;
 
   @NonNull
   public final Button testConnectionButton;
 
   @NonNull
-  public final EditText urlInput;
-
-  @NonNull
   public final Switch vpnSwitch;
 
   private ActivityMainBinding(@NonNull LinearLayout rootView, @NonNull Button addLinkButton,
-      @NonNull Button btnStartVpn, @NonNull TextView nodeInfo, @NonNull ListView nodeList,
-      @NonNull Button parseButton, @NonNull Button testConnectionButton, @NonNull EditText urlInput,
+      @NonNull Button addToListButton, @NonNull Button btnStartVpn,
+      @NonNull TextView connectionStatus, @NonNull TextView currentServer,
+      @NonNull Button quickConnectButton, @NonNull EditText quickUrlInput,
+      @NonNull RecyclerView serverList, @NonNull Button testConnectionButton,
       @NonNull Switch vpnSwitch) {
     this.rootView = rootView;
     this.addLinkButton = addLinkButton;
+    this.addToListButton = addToListButton;
     this.btnStartVpn = btnStartVpn;
-    this.nodeInfo = nodeInfo;
-    this.nodeList = nodeList;
-    this.parseButton = parseButton;
+    this.connectionStatus = connectionStatus;
+    this.currentServer = currentServer;
+    this.quickConnectButton = quickConnectButton;
+    this.quickUrlInput = quickUrlInput;
+    this.serverList = serverList;
     this.testConnectionButton = testConnectionButton;
-    this.urlInput = urlInput;
     this.vpnSwitch = vpnSwitch;
   }
 
@@ -95,27 +105,45 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.add_to_list_button;
+      Button addToListButton = ViewBindings.findChildViewById(rootView, id);
+      if (addToListButton == null) {
+        break missingId;
+      }
+
       id = R.id.btnStartVpn;
       Button btnStartVpn = ViewBindings.findChildViewById(rootView, id);
       if (btnStartVpn == null) {
         break missingId;
       }
 
-      id = R.id.nodeInfo;
-      TextView nodeInfo = ViewBindings.findChildViewById(rootView, id);
-      if (nodeInfo == null) {
+      id = R.id.connection_status;
+      TextView connectionStatus = ViewBindings.findChildViewById(rootView, id);
+      if (connectionStatus == null) {
         break missingId;
       }
 
-      id = R.id.nodeList;
-      ListView nodeList = ViewBindings.findChildViewById(rootView, id);
-      if (nodeList == null) {
+      id = R.id.current_server;
+      TextView currentServer = ViewBindings.findChildViewById(rootView, id);
+      if (currentServer == null) {
         break missingId;
       }
 
-      id = R.id.parseButton;
-      Button parseButton = ViewBindings.findChildViewById(rootView, id);
-      if (parseButton == null) {
+      id = R.id.quick_connect_button;
+      Button quickConnectButton = ViewBindings.findChildViewById(rootView, id);
+      if (quickConnectButton == null) {
+        break missingId;
+      }
+
+      id = R.id.quick_url_input;
+      EditText quickUrlInput = ViewBindings.findChildViewById(rootView, id);
+      if (quickUrlInput == null) {
+        break missingId;
+      }
+
+      id = R.id.server_list;
+      RecyclerView serverList = ViewBindings.findChildViewById(rootView, id);
+      if (serverList == null) {
         break missingId;
       }
 
@@ -125,20 +153,15 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.urlInput;
-      EditText urlInput = ViewBindings.findChildViewById(rootView, id);
-      if (urlInput == null) {
-        break missingId;
-      }
-
-      id = R.id.vpnSwitch;
+      id = R.id.vpn_switch;
       Switch vpnSwitch = ViewBindings.findChildViewById(rootView, id);
       if (vpnSwitch == null) {
         break missingId;
       }
 
-      return new ActivityMainBinding((LinearLayout) rootView, addLinkButton, btnStartVpn, nodeInfo,
-          nodeList, parseButton, testConnectionButton, urlInput, vpnSwitch);
+      return new ActivityMainBinding((LinearLayout) rootView, addLinkButton, addToListButton,
+          btnStartVpn, connectionStatus, currentServer, quickConnectButton, quickUrlInput,
+          serverList, testConnectionButton, vpnSwitch);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

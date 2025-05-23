@@ -2857,20 +2857,22 @@
                     }
                 },
                 {
-                    "source": "D:\\files\\projects\\A_Proxy_From_Url_J\\app\\src\\main\\res\\values\\ic_launcher_background.xml",
+                    "source": "C:\\Users\\windy\\Desktop\\A_Proxy_From_Url_J\\app\\src\\main\\res\\values\\shape.xml",
                     "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "57",
-                        "endColumns": "56",
-                        "endOffsets": "109"
+                        "startLines": "15,9,3",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "544,309,75",
+                        "endLines": "18,12,6",
+                        "endColumns": "12,12,12",
+                        "endOffsets": "752,518,282"
                     },
                     "to": {
-                        "startLines": "698",
-                        "startColumns": "4",
-                        "startOffsets": "36834",
-                        "endColumns": "56",
-                        "endOffsets": "36886"
+                        "startLines": "5843,5847,5851",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "410440,410650,410861",
+                        "endLines": "5846,5850,5854",
+                        "endColumns": "12,12,12",
+                        "endOffsets": "410645,410856,411065"
                     }
                 },
                 {
@@ -2891,6 +2893,23 @@
                     }
                 },
                 {
+                    "source": "C:\\Users\\windy\\Desktop\\A_Proxy_From_Url_J\\app\\src\\main\\res\\values\\ic_launcher_background.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "57",
+                        "endColumns": "56",
+                        "endOffsets": "109"
+                    },
+                    "to": {
+                        "startLines": "698",
+                        "startColumns": "4",
+                        "startOffsets": "36834",
+                        "endColumns": "56",
+                        "endOffsets": "36886"
+                    }
+                },
+                {
                     "source": "C:\\Users\\windy\\.gradle\\caches\\transforms-3\\84bc3918985e6daf2c72a2b13ca12a91\\transformed\\customview-poolingcontainer-1.0.0\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2,3",
@@ -2905,23 +2924,6 @@
                         "startOffsets": "120478,121626",
                         "endColumns": "53,66",
                         "endOffsets": "120527,121688"
-                    }
-                },
-                {
-                    "source": "D:\\files\\projects\\A_Proxy_From_Url_J\\app\\src\\main\\res\\values\\strings.xml",
-                    "from": {
-                        "startLines": "2,4,3,5,6,7",
-                        "startColumns": "4,4,4,4,4,4",
-                        "startOffsets": "57,157,107,206,254,302",
-                        "endColumns": "48,47,48,46,46,61",
-                        "endOffsets": "101,200,151,248,296,359"
-                    },
-                    "to": {
-                        "startLines": "1978,1990,1991,1992,1993,2124",
-                        "startColumns": "4,4,4,4,4,4",
-                        "startOffsets": "130872,132537,132585,132634,132681,151017",
-                        "endColumns": "48,47,48,46,46,61",
-                        "endOffsets": "130916,132580,132629,132676,132723,151074"
                     }
                 },
                 {
@@ -3056,7 +3058,7 @@
                     }
                 },
                 {
-                    "source": "D:\\files\\projects\\A_Proxy_From_Url_J\\app\\src\\main\\res\\values\\colors.xml",
+                    "source": "C:\\Users\\windy\\Desktop\\A_Proxy_From_Url_J\\app\\src\\main\\res\\values\\colors.xml",
                     "from": {
                         "startLines": "6,2,3,4,5,7",
                         "startColumns": "4,4,4,4,4,4",
@@ -3092,26 +3094,7 @@
                     }
                 },
                 {
-                    "source": "D:\\files\\projects\\A_Proxy_From_Url_J\\app\\src\\main\\res\\values\\shape.xml",
-                    "from": {
-                        "startLines": "15,9,3",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "544,309,75",
-                        "endLines": "18,12,6",
-                        "endColumns": "12,12,12",
-                        "endOffsets": "752,518,282"
-                    },
-                    "to": {
-                        "startLines": "5843,5847,5851",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "410440,410650,410861",
-                        "endLines": "5846,5850,5854",
-                        "endColumns": "12,12,12",
-                        "endOffsets": "410645,410856,411065"
-                    }
-                },
-                {
-                    "source": "D:\\files\\projects\\A_Proxy_From_Url_J\\app\\src\\main\\res\\values\\dimens.xml",
+                    "source": "C:\\Users\\windy\\Desktop\\A_Proxy_From_Url_J\\app\\src\\main\\res\\values\\dimens.xml",
                     "from": {
                         "startLines": "6,2,5,4,3",
                         "startColumns": "4,4,4,4,4",
@@ -3166,6 +3149,23 @@
                     }
                 },
                 {
+                    "source": "C:\\Users\\windy\\Desktop\\A_Proxy_From_Url_J\\app\\src\\main\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "2,4,3,5,6,7",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "57,157,107,206,254,302",
+                        "endColumns": "48,47,48,46,46,61",
+                        "endOffsets": "101,200,151,248,296,359"
+                    },
+                    "to": {
+                        "startLines": "1978,1990,1991,1992,1993,2124",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "130872,132537,132585,132634,132681,151017",
+                        "endColumns": "48,47,48,46,46,61",
+                        "endOffsets": "130916,132580,132629,132676,132723,151074"
+                    }
+                },
+                {
                     "source": "C:\\Users\\windy\\.gradle\\caches\\transforms-3\\39e6174abcdccbd0e128a101e3d128db\\transformed\\savedstate-1.2.1\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2",
@@ -3183,7 +3183,7 @@
                     }
                 },
                 {
-                    "source": "D:\\files\\projects\\A_Proxy_From_Url_J\\app\\src\\main\\res\\values\\themes.xml",
+                    "source": "C:\\Users\\windy\\Desktop\\A_Proxy_From_Url_J\\app\\src\\main\\res\\values\\themes.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

@@ -16,7 +16,11 @@
         "source": "C:\\Users\\windy\\.gradle\\daemon\\8.2\\com.example.proxyclient.app-main-37:\\layout\\activity_link_input.xml"
     },
     {
-        "merged": "com.example.proxyclient.app-mergeDebugResources-34:/layout/activity_main.xml",
-        "source": "com.example.proxyclient.app-main-37:/layout/activity_main.xml"
+        "merged": "com.example.proxyclient.app-mergeDebugResources-34:/layout/item_server.xml",
+        "source": "com.example.proxyclient.app-main-37:/layout/item_server.xml"
+    },
+    {
+        "merged": "C:\\Users\\windy\\.gradle\\daemon\\8.2\\com.example.proxyclient.app-mergeDebugResources-34:\\layout\\item_server.xml",
+        "source": "C:\\Users\\windy\\.gradle\\daemon\\8.2\\com.example.proxyclient.app-main-37:\\layout\\item_server.xml"
     }
 ]
